@@ -1,0 +1,82 @@
+button.Contact{
+    width: 141px;
+    height: 46px;
+    background-color: #00838F;
+    position: relative;
+    top: 50px;
+    color: white;
+    border-radius: 12px;
+}
+button.Course{
+    width: 200px;
+    height: 200px;
+    border-style: dashed;
+    border-color: #00838F;
+    color: #374B5C;
+}
+button.Course:hover{
+    background-color: #00838F;
+    color: white;
+}
+
+img.picture{
+    max-height: 250px;
+    max-width: 250px;
+    position: absolute;
+}
+
+img.CourseLogo{
+    max-height: 80px;
+    position: relative;
+
+}
+
+div #PageFormat{
+    background-color: #F6F5F1;
+    width: 1080px;
+    height: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+div #BackGroundFormat{
+    background-color: #FFECB3;
+}
+
+div.CourseDetail{
+    font-size: 10px;
+    bottom: 5px;
+    position: relative
+}
+div.CourseName{
+    position: relative;
+    bottom: 15px
+}
+
+li.Learning{
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+}
+li.footer{
+    background-image: url("../img/Footer.svg");
+    position: relative;
+    margin-top: 550px;
+    width: 1080px;
+    height: 550px;
+}
+li.ContactLogo{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
