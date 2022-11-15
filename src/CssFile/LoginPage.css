@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* Background */
+#background {
+    background-image: url('../img/Background.png');
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1.4px;
+}
+
+/* Content Container */
+#background #container {
+    display: flex;
+    width: 70%;
+    height: 80%;
+    box-shadow: 4px 4px 20px grey;
+    border-radius: 40px;
+}
+
+/* Left Container In container */
+#container #left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    padding: 40px;
+    float: left;
+    background-color:#00838F;
+    color: #FFFFFF;
+    border-radius: 40px 0 0 40px;
+}
+
+#container #left-container a {
+    width: 24x;
+    height: 24px;
+    font-size: 24px;
+    align-self: flex-start;
+    color: #00BCD4;
+}
+
+#container #left-container #introContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto 0;
+}
+
+#left-container #introContent img{
+    width: 25%;
+    color: #00BCD4;
+    justify-items: center;
+}
+
+#left-container #introContent h1 {
+    margin-top: 32px;
+    font-size: 40px;
+    font-weight: 200;
+}
+
+#left-container #introContent h2 {
+    margin: 16px 0;
+    font-size: 24px;
+    font-weight: 200;
+}
+
+/* Right Container In container*/
+#container #right-container {
+    display: flex;
+    padding: 10% 32px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    float: right;
+    background-color: #FFFFFF;
+    border-radius: 0 40px 40px 0;
+}
+
+#right-container form {
+    margin: 32px 0;
+    width: 80%;
+    height: 60%;
+}
+
+#right-container form label {
+    color:rgba(0, 0, 0, 0.7);
+}
+
+#right-container form .inputGroup {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    justify-content: center;
+    margin-top: 32px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    height: 44px;
+    line-height: 44px;
+}
+
+#right-container form .inputGroup:hover {
+    border: 2px solid #00bcd4;
+    color:#FFA000;
+}
+
+#right-container form .inputText {
+    display: none;
+    width: 100%;
+    border: none;
+}
+
+#right-container form #moreDetails {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin: 16px 0 32px 0;
+}
