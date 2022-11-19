@@ -3,13 +3,15 @@ import eduUs from "../img/Group 82.svg";
 import logo from "../img/Group 256.svg";
 import { Form, FormControl, FloatingLabel, Button} from "react-bootstrap";
 import "../CssFile/LoginPage.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+var houseIcon = 'fa-solid fa-house';
 
 function LoginPage(){
     return(
         <div id={'background'}>
             <div id={'container'}>
                 <div id={'left-container'}>
-                    <a href="/"><i className={'fa-solid fa-house'} id={'home-btn'}></i></a>
+                    <a href="/"><i className={houseIcon} id={'home-btn'}></i></a>
                     <div id='introContent'>
                         <img src={logo} alt={'logo'}></img>
                         <img src={eduUs} alt={'logo'}></img>
