@@ -1,7 +1,8 @@
 import React from "react";
 
-import eduUs from "../asset/img/Group 82.svg";
-import logo from "../asset/img/Group 256.svg"
+import eduUs from "../img/Group 82.svg";
+import logo from "../img/Group 256.svg"
+
 import { Button, Form, FormLabel, FormText } from "react-bootstrap";
 function LoginPage(){
     return(
