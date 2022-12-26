@@ -1,10 +1,12 @@
 import React, { Fragment } from "react";
-import NavBarDashBoard from "../Components/NavBarDashBoard";
+import {NavBarDashBoard} from "../Components/NavBarDashBoard";
+
+
 function Test(){
 
     return(
         <Fragment>
-            Empty
+            <NavBarDashBoard>Test</NavBarDashBoard>
         </Fragment>
     );
 }
