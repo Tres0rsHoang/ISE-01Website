@@ -1,11 +1,10 @@
 import React from "react";
+import {NavBarDashBoard} from "./NavBarDashBoard";
 
 export class Content extends React.Component{
     render() {
         return (
-          <div id = {"Content"}>
-              {this.props.children}
-          </div>
+            <NavBarDashBoard>{this.props.children}</NavBarDashBoard>
         );
     }
 }

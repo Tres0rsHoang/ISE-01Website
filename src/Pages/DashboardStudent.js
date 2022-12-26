@@ -1,24 +1,23 @@
 import React, { Fragment } from "react";
-import NavBarDashBoard from "../Components/NavBarDashBoard";
+import { Content } from "../Components/Content";
+
 function Test(){
     return(
         <Fragment>
-            <div style={{backgroundColor: "#074F6B", width: "100%", height: "100%"}}>
-                <table style={{width: "100%", height: "100vh"}}>
+            <Content> 
+                <table>
                     <tr>
-                        <td rowSpan="2" style={{width: "100px"}}>
-                            <NavBarDashBoard />
-                        </td>
-                        <td style={{height: "80px", backgroundColor: "#074F6B"}}>
-                        </td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
                     </tr>
                     <tr>
-                        <td style={{backgroundColor: "white", borderRadius: "50px"}}>
-                            Content ở đây.
-                        </td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
                     </tr>
                 </table>
-            </div>
+            </Content>
         </Fragment>
     );
 }
