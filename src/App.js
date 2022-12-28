@@ -10,6 +10,8 @@ import Test from "./Pages/Test";
 import LecturerDashboard from "./Pages/LecturerDashboard";
 import LecturerMyCourses from "./Pages/LecturerMyCourses";
 import LecturerCourseDetail from "./Pages/LecturerCourseDetail";
+import LecturerCourseMaterials from "./Pages/LecturerCourseMaterials";
+import LecturerCourseAssignments from "./Pages/LecturerCourseAssignments";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path='/LecturerDashboard' element={<LecturerDashboard/>}/>
             <Route path='/LecturerMyCourses' element={<LecturerMyCourses/>}/>
             <Route path='/LecturerCourseDetail' element={<LecturerCourseDetail/>}/>
+            <Route path='/LecturerCourseMaterials' element={<LecturerCourseMaterials/>}/>
+            <Route path='/LecturerCourseAssignments' element={<LecturerCourseAssignments/>}/>
         </Routes>
       </Router>
   );

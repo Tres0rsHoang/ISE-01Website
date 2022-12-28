@@ -1,32 +1,56 @@
 import React, { Fragment } from "react";
 import { Content } from "../Components/Content";
-import { Button, Breadcrumb} from "react-bootstrap";
+import { Button, Breadcrumb } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import sampleVideo from "../img/sampleMP4Video.mp4";
 import fileIcon from "../img/fileIcon.svg";
-function LecturerCourseDetail() {
+
+function LecturerCourseAssignments() {
     return (
         <Fragment>
             <Content>
-                <div id="lecturerCourseDetail" className="d-flex" style={{ padding: "2rem" }}>
+                <div id="lecturerCourseAssignments" className="d-flex" style={{ padding: "2rem" }}>
                     <div className="courseSection" style={{ width: "70%" }}>
-                        <h3 className="mt-4" style={{ fontWeight: "600" }}>Intro To Software Engineering</h3>
+                        <div className="courseTitleBtn d-flex justify-content-between align-items-center">
+                            <h3 className="mt-4" style={{ width: "70%", fontWeight: "600" }}>Intro To Software Engineering - Assignments</h3>
+                            <Button className="newAssignmentBtn mt-4 me-5 d-flex justify-content-center align-items-center" style={{ height: "36px" }}>New Assignment</Button>
+                        </div>
                         <Breadcrumb className="breadcrumb mb-0">
                             <Breadcrumb.Item href="/LecturerDashboard">Dashboard</Breadcrumb.Item>
                             <Breadcrumb.Item href="/LecturerMyCourses">My Courses</Breadcrumb.Item>
                             <Breadcrumb.Item href="/LecturerCourseDetail">Intro To Software Engineering</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/LecturerCourseAssignments">Assignments</Breadcrumb.Item>
                         </Breadcrumb>
-                        <video src={sampleVideo} width="90%" height="auto" style={{ borderRadius: "32px" }} controls></video>
-                        <div className="currentLessonDetail">
-                            <h4 className="currentLessonName mt-4 mb-2" style={{ fontWeight: "600" }}>Lesson 1 - Introduction</h4>
-                            <p className="lecturerName" style={{ fontWeight: "600" }}>Professor Mai Anh Tuan</p>
-                            <p className="currentLessonDesc" style={{ width: "90%", fontSize: "0.8rem", textAlign: "justify" }}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus sit amet nisi et congue. Aliquam viverra
-                                interdum rutrum. Curabitur lobortis dui metus. Fusce a arcu mauris. Praesent feugiat bibendum tincidunt.
-                                Nam eu malesuada nisl. Vestibulum posuere imperdiet volutpat. Donec metus massa, hendrerit sit amet ante quis,
-                                mollis dictum risus. Vivamus auctor nibh tellus, eget sollicitudin tortor sollicitudin ac. Nulla facilisi.
-                                Sed tincidunt mattis feugiat. Donec porttitor ante ac magna viverra lacinia.
-                            </p>
+                        <div className="listAssignments mt-3 d-flex flex-column justify-content-start" style={{ maxHeight: "520px" }}>
+                            <NavLink className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                                <Button className="assignmentButton mx-3 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
+                                    <img src={fileIcon} alt="fileIcon"></img>
+                                </Button>
+                                <p className="assignmentName w-75 mb-0">Assignment 1 - Due: 12/12/2022</p>
+                            </NavLink>
+                            <NavLink className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                                <Button className="assignmentButton mx-3 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
+                                    <img src={fileIcon} alt="fileIcon"></img>
+                                </Button>
+                                <p className="assignmentName w-75 mb-0">Assignment 2 - Due: 12/12/2022</p>
+                            </NavLink>
+                            <NavLink className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                                <Button className="assignmentButton mx-3 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
+                                    <img src={fileIcon} alt="fileIcon"></img>
+                                </Button>
+                                <p className="assignmentName w-75 mb-0">Assignment 3 - Due: 12/12/2022</p>
+                            </NavLink>
+                            <NavLink className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                                <Button className="assignmentButton mx-3 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
+                                    <img src={fileIcon} alt="fileIcon"></img>
+                                </Button>
+                                <p className="assignmentName w-75 mb-0">Assignment 4 - Due: 12/12/2022</p>
+                            </NavLink>
+                            <NavLink className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                                <Button className="assignmentButton mx-3 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
+                                    <img src={fileIcon} alt="fileIcon"></img>
+                                </Button>
+                                <p className="assignmentName w-75 mb-0">Assignment 5 - Due: 12/12/2022</p>
+                            </NavLink>
                         </div>
                     </div>
                     <div className="lessonSection" style={{ width: "30%" }}>
@@ -96,4 +120,4 @@ function LecturerCourseDetail() {
         </Fragment>
     );
 }
-export default LecturerCourseDetail;
+export default LecturerCourseAssignments;

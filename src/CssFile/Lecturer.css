@@ -22,25 +22,57 @@
     color: black;
 }
 
-#lecturerCourseDetail a {
+#lecturerCourseDetail a,
+#lecturerCourseMaterials a,
+#lecturerCourseAssignments a{
     color: black;
 }
 
-#lecturerCourseDetail .lessonList {
+#lecturerCourseDetail .lessonList,
+#lecturerCourseMaterials .lessonList,
+#lecturerCourseAssignments .lessonList {
     border-left: 2px solid black;
     overflow-y: auto;
 }
 
-#lecturerCourseDetail .lessonSection .btn {
+#lecturerCourseDetail .lessonSection .btn, 
+#lecturerCourseMaterials .lessonSection .btn,
+#lecturerCourseMaterials .courseTitleBtn .btn,
+#lecturerCourseAssignments .lessonSection .btn,
+#lecturerCourseAssignments .courseTitleBtn .btn {
     border: 2px solid var(--darkgreen);
     background-color: var(--darkgreen) !important;
+    color: #FFFFFF !important;
     outline: none;
 }
 
-#lecturerCourseDetail .lessonList .lesson {
+#lecturerCourseDetail .lessonList .lesson,
+#lecturerCourseMaterials .lessonList .lesson,
+#lecturerCourseAssignments .lessonList .lesson {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* #lecturerCourseDetail .courseElementBtns .btn {
-    width:
-} */
+/* Lecturer Course Materials */
+#lecturerCourseMaterials .listMaterials,
+#lecturerCourseAssignments .listAssignments {
+    overflow-y: auto;
+}
+
+#lecturerCourseMaterials .material,
+#lecturerCourseAssignments .assignment {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#lecturerCourseMaterials .material .downloadButton,
+#lecturerCourseAssignments .assignment .assignmentButton {
+    border: 0px solid var(--darkgreen);
+    background-color: var(--darkgreen) !important;
+    color: #FFFFFF !important;
+    outline: none;
+}
+
+#lecturerCourseMaterials .material .deleteButton {
+    border: 1px solid var(--darkgreen);
+    background-color: white;
+    color: var(--darkgreen) !important;
+}

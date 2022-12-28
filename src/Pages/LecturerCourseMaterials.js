@@ -1,32 +1,71 @@
 import React, { Fragment } from "react";
 import { Content } from "../Components/Content";
-import { Button, Breadcrumb} from "react-bootstrap";
+import { Button, Breadcrumb } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import sampleVideo from "../img/sampleMP4Video.mp4";
 import fileIcon from "../img/fileIcon.svg";
-function LecturerCourseDetail() {
+
+function LecturerCourseMaterials() {
     return (
         <Fragment>
             <Content>
-                <div id="lecturerCourseDetail" className="d-flex" style={{ padding: "2rem" }}>
+                <div id="lecturerCourseMaterials" className="d-flex" style={{ padding: "2rem" }}>
                     <div className="courseSection" style={{ width: "70%" }}>
-                        <h3 className="mt-4" style={{ fontWeight: "600" }}>Intro To Software Engineering</h3>
+                        <div className="courseTitleBtn d-flex justify-content-between align-items-center">
+                            <h3 className="mt-4" style={{ width: "70%", fontWeight: "600" }}>Intro To Software Engineering - Materials</h3>
+                            <Button className="uploadMaterialBtn mt-4 me-5 d-flex justify-content-center align-items-center" style={{ height: "36px" }}>Upload New File</Button>
+                        </div>
                         <Breadcrumb className="breadcrumb mb-0">
                             <Breadcrumb.Item href="/LecturerDashboard">Dashboard</Breadcrumb.Item>
                             <Breadcrumb.Item href="/LecturerMyCourses">My Courses</Breadcrumb.Item>
                             <Breadcrumb.Item href="/LecturerCourseDetail">Intro To Software Engineering</Breadcrumb.Item>
+                            <Breadcrumb.Item href="/LecturerCourseMaterials">Materials</Breadcrumb.Item>
                         </Breadcrumb>
-                        <video src={sampleVideo} width="90%" height="auto" style={{ borderRadius: "32px" }} controls></video>
-                        <div className="currentLessonDetail">
-                            <h4 className="currentLessonName mt-4 mb-2" style={{ fontWeight: "600" }}>Lesson 1 - Introduction</h4>
-                            <p className="lecturerName" style={{ fontWeight: "600" }}>Professor Mai Anh Tuan</p>
-                            <p className="currentLessonDesc" style={{ width: "90%", fontSize: "0.8rem", textAlign: "justify" }}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus sit amet nisi et congue. Aliquam viverra
-                                interdum rutrum. Curabitur lobortis dui metus. Fusce a arcu mauris. Praesent feugiat bibendum tincidunt.
-                                Nam eu malesuada nisl. Vestibulum posuere imperdiet volutpat. Donec metus massa, hendrerit sit amet ante quis,
-                                mollis dictum risus. Vivamus auctor nibh tellus, eget sollicitudin tortor sollicitudin ac. Nulla facilisi.
-                                Sed tincidunt mattis feugiat. Donec porttitor ante ac magna viverra lacinia.
-                            </p>
+                        <div className="listMaterials mt-3 d-flex flex-column justify-content-start" style={{ maxHeight: "520px" }}>
+                            <div className="material w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                                <p className="materialName w-75 ps-3 mb-0">File Material For Course</p>
+                                <Button className="downloadButton me-3" style={{ width: "40px", height: "40px" }}>
+                                    <i className="fa-solid fa-download"></i>
+                                </Button>
+                                <Button className="deleteButton" style={{ width: "40px", height: "40px" }}>
+                                    <i className="fa-solid fa-trash"></i>
+                                </Button>
+                            </div>
+                            <div className="material w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                                <p className="materialName w-75 ps-3 mb-0">File Material For Course</p>
+                                <Button className="downloadButton me-3" style={{ width: "40px", height: "40px" }}>
+                                    <i className="fa-solid fa-download"></i>
+                                </Button>
+                                <Button className="deleteButton" style={{ width: "40px", height: "40px" }}>
+                                    <i className="fa-solid fa-trash"></i>
+                                </Button>
+                            </div>
+                            <div className="material w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                                <p className="materialName w-75 ps-3 mb-0">File Material For Course</p>
+                                <Button className="downloadButton me-3" style={{ width: "40px", height: "40px" }}>
+                                    <i className="fa-solid fa-download"></i>
+                                </Button>
+                                <Button className="deleteButton" style={{ width: "40px", height: "40px" }}>
+                                    <i className="fa-solid fa-trash"></i>
+                                </Button>
+                            </div>
+                            <div className="material w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                                <p className="materialName w-75 ps-3 mb-0">File Material For Course</p>
+                                <Button className="downloadButton me-3" style={{ width: "40px", height: "40px" }}>
+                                    <i className="fa-solid fa-download"></i>
+                                </Button>
+                                <Button className="deleteButton" style={{ width: "40px", height: "40px" }}>
+                                    <i className="fa-solid fa-trash"></i>
+                                </Button>
+                            </div>
+                            <div className="material w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                                <p className="materialName w-75 ps-3 mb-0">File Material For Course</p>
+                                <Button className="downloadButton me-3" style={{ width: "40px", height: "40px" }}>
+                                    <i className="fa-solid fa-download"></i>
+                                </Button>
+                                <Button className="deleteButton" style={{ width: "40px", height: "40px" }}>
+                                    <i className="fa-solid fa-trash"></i>
+                                </Button>
+                            </div>
                         </div>
                     </div>
                     <div className="lessonSection" style={{ width: "30%" }}>
@@ -96,4 +135,4 @@ function LecturerCourseDetail() {
         </Fragment>
     );
 }
-export default LecturerCourseDetail;
+export default LecturerCourseMaterials;
