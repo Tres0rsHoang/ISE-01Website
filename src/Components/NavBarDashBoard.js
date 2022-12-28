@@ -6,13 +6,11 @@ export class NavBarDashBoard extends React.Component{
     {
         let State = false;
         let Lock = false;
-
         function sleep(ms) {
             return new Promise(
                 resolve => setTimeout(resolve, ms)
             );
         }
-
         const LogoClick = async () => {
             if (State && !Lock){
                 jumpOut();
@@ -71,7 +69,7 @@ export class NavBarDashBoard extends React.Component{
                 <div id={"EduText"} className={'fw-bolder'}>EduUS</div>
                 <img src={Logo} id={"Logo"} onMouseOver={LogoIO} onMouseLeave={LogoIO} onClick={LogoClick}
                      alt={"Logo"}></img>
-                <div id={"main"}>
+                <div id={"main"} style={{overflow: "scroll", height: "calc(100vh - 100px", overflowX: "hidden"}}>
                     {this.props.children}
                 </div>
             </div>
