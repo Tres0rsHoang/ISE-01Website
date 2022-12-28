@@ -1,14 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+:root {
+    --darkgreen: #074F6B;
+}
+
+/* Lecturer Dashboard */
 #lecturerDashboard .cardDashboard p {
     font-family: 'Montserrat', sans-serif;
 }
 
+
+/* Lecturer My Courses */
 #lecturerMyCourses {
     font-family: 'Poppins', sans-serif;
 }
 
-#lecturerCourseDetail .breadcrumb a{
+
+/* Lecturer Course Detail */
+#lecturerCourseDetail {
     color: black;
 }
+
+#lecturerCourseDetail a {
+    color: black;
+}
+
+#lecturerCourseDetail .lessonList {
+    border-left: 2px solid black;
+    overflow-y: auto;
+}
+
+#lecturerCourseDetail .lessonSection .btn {
+    border: 2px solid var(--darkgreen);
+    background-color: var(--darkgreen) !important;
+    outline: none;
+}
+
+#lecturerCourseDetail .lessonList .lesson {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* #lecturerCourseDetail .courseElementBtns .btn {
+    width:
+} */
