@@ -35,7 +35,7 @@
     width: 40%;
     padding: 40px;
     float: left;
-    background-color:#00838F;
+    background-color: #00838F;
     color: #FFFFFF;
     border-radius: 40px 0 0 40px;
 }
@@ -55,7 +55,7 @@
     margin: auto 0;
 }
 
-#left-container #introContent img{
+#left-container #introContent img {
     width: 25%;
     color: #00BCD4;
     justify-items: center;
@@ -96,48 +96,50 @@
     width: 80%;
     height: 60%;
 }
-    /* Login Form */
-.login-form #userGroup,
-.login-form #passGroup {
+
+/* Login Form */
+#right-container .login-form #userGroup,
+#right-container .login-form #passGroup {
     border: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 12px;
 }
 
-.login-form #userGroup:focus,
-.login-form #passGroup:focus {
+#right-container .login-form #userGroup:focus,
+#right-container .login-form #passGroup:focus {
     box-shadow: none;
     border: 3px solid #00BCD4;
 }
 
-.login-form a {
-    color:#FFA000;
+#right-container .login-form a {
+    color: #FFA000;
     float: right;
 }
 
-.login-form .mb-3 label, 
-.login-form .mb-5 label {
-    color:rgba(0, 0, 0, 0.7);
+#right-container .login-form .mb-3 label,
+#right-container .login-form .mb-5 label {
+    color: rgba(0, 0, 0, 0.7);
 }
 
-.login-form .mb-3 input:focus~label {
-    color:#FFA000;
+#right-container .login-form .mb-3 input:focus~label {
+    color: #FFA000;
 }
 
-.login-form .form-check-input {
+#right-container .login-form .form-check-input {
     height: 20px;
     width: 20px;
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.login-form .form-check-input:focus {
+#right-container .login-form .form-check-input:focus {
     box-shadow: none;
     outline: none;
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
-    /* ---------- */
-    /* Submit Button */
-.login-form .btn {
-    display:block;
+
+/* ---------- */
+/* Submit Button */
+#right-container .login-form .btn {
+    display: block;
     color: #FFFFFF;
     background-color: #FFA000;
     border: none;
@@ -145,8 +147,8 @@
     text-transform: uppercase;
 }
 
-.login-form .btn:hover {
+#right-container .login-form .btn:hover {
     border: 1px solid #FFA000;
     background-color: #FFFFFF;
-    color:#FFA000;
+    color: #FFA000;
 }

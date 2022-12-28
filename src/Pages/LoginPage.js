@@ -1,11 +1,9 @@
 import React from "react";
-
 import eduUs from "../img/Group 82.svg";
 import logo from "../img/Group 256.svg"
-
-import { Button, Form, FormLabel, FormText } from "react-bootstrap";
-function LoginPage(){
-    return(
+import { Button, Form, FloatingLabel, FormControl} from "react-bootstrap";
+function LoginPage() {
+    return (
         <div id={'background'}>
             <div id={'container'}>
                 <div id={'left-container'}>
@@ -18,28 +16,43 @@ function LoginPage(){
                     </div>
                 </div>
                 <div id='right-container'>
-                    <h1>Login</h1>
-                    <Form action="">
-                        <div id="groupName" class="inputGroup">
-                            <FormLabel for="name">Name:</FormLabel>
-                            <FormText type="text" id="name" class="inputText" name="name"></FormText>
-                        </div>
-                        <div id="groupPass" class="inputGroup">
-                            <label for="pass">Password:</label>
-                            <input type="password" id="pass" class="inputText" name="password"></input>
-                        </div>
-                        <div id="moreDetails">
-                            <div id="groupRemember">
-                                <input type="checkbox" id="remember" name="remember"></input>
-                                <label for="remember">Remember</label>
-                            </div>
-                            <a href="/">Forgot password?</a>
-                        </div>
-                        <Button variant="contained">Continue</Button>
+                    <p>Login</p>
+                    <Form className={"login-form"}>
+                        <FloatingLabel
+                            controlId={"userGroup"}
+                            className={"mb-3"}
+                            label={"Username"}>
+                            <FormControl
+                                type={"text"}
+                                name={"username"}
+                                controlId={"username"}
+                                placeholder={"Enter username"}
+                                required
+                            />
+                        </FloatingLabel>
+                        <FloatingLabel
+                            controlId={"passGroup"}
+                            className={"mb-3"}
+                            label={"Password"}>
+                            <FormControl
+                                type={"password"}
+                                name={"password"}
+                                controlId={"password"}
+                                placeholder={"Enter password"}
+                                required
+                            />
+                        </FloatingLabel>
+                        <Form.Check inline className={"mb-5"}
+                            id={"remember"}
+                            name={"remember"}
+                            label={"Remember"}
+                            type={"checkbox"} />
+                        <a href="/">Forgot password?</a>
+                        <Button type="submit">Continue</Button>
                     </Form>
                 </div>
             </div>
-        </div>  
+        </div>
     );
 }
 export default LoginPage;

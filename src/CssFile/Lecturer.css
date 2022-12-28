@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+#lecturerDashboard .cardDashboard p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#lecturerMyCourses {
+    font-family: 'Poppins', sans-serif;
+}
+
+#lecturerCourseDetail .breadcrumb a{
+    color: black;
+}
