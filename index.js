@@ -4,7 +4,7 @@ const knex = require('knex')({
         host : '127.0.0.1',
         port : 5432,
         user : 'postgres',
-        password : 'bao01932',
+        password : '132456789',
         database : 'students_db'
     },
     pool: {min: 0, max: 10}
@@ -33,6 +33,7 @@ app.get('/Admin',async (req, res)=>{
     const StudentCount = await knex('account').count().where('usertype', 3);
     const CourseCount = await knex('course').count();
     const LecturerCount = await knex('account').count().where('usertype', 2);
+
     res.json({
         StudentCount: StudentCount[0].count,
         CourseCount: CourseCount[0].count,
@@ -46,15 +47,11 @@ app.get('/Admin/StudentManagement', async (req, res)=>{
     const List = await knex('account').where('usertype', 3).limit(limit).offset(offset);
     res.json({List: List});
 });
-
 app.post('/Admin/AddNewStudent', async (req, res) =>{
     const Exist = await knex('account').count('id').whereRaw('accountusername LIKE ?', [req.body.accountusername]);
     if (Exist[0].count > 0) res.json({mess: 'This user name already have in student list'});
     else {
-        for(let i=0;i<100;i++) {
-            req.body.accountusername = (Number(req.body.accountusername) + 1).toString();
-            await knex('account').insert(req.body);
-        }
+        await knex('account').insert(req.body);
         res.json({mess: 'Added a new student successfully.'});
     }
 });

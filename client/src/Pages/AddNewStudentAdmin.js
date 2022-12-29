@@ -25,7 +25,6 @@ class AddNewStudent extends Component{
             }
         );
     }
-
     render() {
         return (
             <Fragment>

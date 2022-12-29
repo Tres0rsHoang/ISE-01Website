@@ -20,7 +20,6 @@ class DashboardAdmin extends Component{
                 LecturerNum: result.data.LecturerCount,
             });
         });
-
     }
     render(){
         return(
