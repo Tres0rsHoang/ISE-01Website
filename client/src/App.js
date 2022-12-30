@@ -21,9 +21,9 @@ function App() {
             <Route path='/EmptyPage' element={<EmptyPage/>} />
             <Route path='/DashboardStudent' element={<DashboardStudent/>}/>
             <Route path='/LoginPage' element={<LoginPage/>}/>
-            {/* <Route path='/Student' element={<DashboardStudent/>}/>
+            <Route path='/Student' element={<DashboardStudent/>}/>
             <Route path='/Admin' element={<DashboardAdmin/>}/>
-            <Route path='/Admin/StudentManagement' element={<StudentManagement/>}/> */}
+            <Route path='/Admin/StudentManagement' element={<StudentManagement/>}/>
             <Route path="/Test" element = {<Test/>}/>
             <Route path='/LecturerDashboard' element={<LecturerDashboard/>}/>
             <Route path='/LecturerMyCourses' element={<LecturerMyCourses/>}/>
