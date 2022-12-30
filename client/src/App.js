@@ -13,6 +13,8 @@ import LecturerCourseDetail from "./Pages/LecturerCourseDetail";
 import LecturerCourseMaterials from "./Pages/LecturerCourseMaterials";
 import LecturerCourseAssignments from "./Pages/LecturerCourseAssignments";
 
+import LecturerInformation from "./Pages/LecturerInformation";
+
 function App() {
   return (
       <Router>
@@ -30,6 +32,8 @@ function App() {
             <Route path='/LecturerCourseDetail' element={<LecturerCourseDetail/>}/>
             <Route path='/LecturerCourseMaterials' element={<LecturerCourseMaterials/>}/>
             <Route path='/LecturerCourseAssignments' element={<LecturerCourseAssignments/>}/>
+
+            <Route path='/LecturerInformation' element={<LecturerInformation/>} />
         </Routes>
       </Router>
   );
