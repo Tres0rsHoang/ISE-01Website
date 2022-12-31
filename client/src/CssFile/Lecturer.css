@@ -12,7 +12,11 @@
 
 
 /* Lecturer My Courses */
-#lecturerMyCourses {
+#lecturerMyCourses,
+#lecturerCourseDetail,
+#lecturerCourseAssignments,
+#lecturerCourseMaterials,
+#lecturerAssignmentDetail {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -24,13 +28,15 @@
 
 #lecturerCourseDetail a,
 #lecturerCourseMaterials a,
-#lecturerCourseAssignments a{
+#lecturerCourseAssignments a,
+#lecturerAssignmentDetail a{
     color: black;
 }
 
 #lecturerCourseDetail .lessonList,
 #lecturerCourseMaterials .lessonList,
-#lecturerCourseAssignments .lessonList {
+#lecturerCourseAssignments .lessonList,
+#lecturerAssignmentDetail .lessonList {
     border-left: 2px solid black;
     overflow-y: auto;
 }
@@ -39,7 +45,9 @@
 #lecturerCourseMaterials .lessonSection .btn,
 #lecturerCourseMaterials .courseTitleBtn .btn,
 #lecturerCourseAssignments .lessonSection .btn,
-#lecturerCourseAssignments .courseTitleBtn .btn {
+#lecturerCourseAssignments .courseTitleBtn .btn,
+#lecturerAssignmentDetail .lessonSection .btn,
+#lecturerAssignmentDetail .courseSection .btn{
     border: 2px solid var(--darkgreen);
     background-color: var(--darkgreen) !important;
     color: #FFFFFF !important;
