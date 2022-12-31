@@ -12,7 +12,7 @@ import LecturerMyCourses from "./Pages/LecturerMyCourses";
 import LecturerCourseDetail from "./Pages/LecturerCourseDetail";
 import LecturerCourseMaterials from "./Pages/LecturerCourseMaterials";
 import LecturerCourseAssignments from "./Pages/LecturerCourseAssignments";
-
+import LecturerAssignmentDetail from "./Pages/LecturerAssignmentDetail";
 import LecturerInformation from "./Pages/LecturerInformation";
 import LecturerChangePassword from "./Pages/LecturerChangePassword"
 
@@ -33,6 +33,7 @@ function App() {
             <Route path='/LecturerCourseDetail' element={<LecturerCourseDetail/>}/>
             <Route path='/LecturerCourseMaterials' element={<LecturerCourseMaterials/>}/>
             <Route path='/LecturerCourseAssignments' element={<LecturerCourseAssignments/>}/>
+            <Route path='/LecturerAssignmentDetail' element={<LecturerAssignmentDetail/>}/>
             <Route path='/LecturerInformation' element={<LecturerInformation/>} />
             <Route path='/LecturerChangePassword' element={<LecturerChangePassword/>}/>
         </Routes>
