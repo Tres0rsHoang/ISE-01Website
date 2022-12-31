@@ -30,7 +30,6 @@ function LecturerInformation() {
                                 style={{
                                     width: "80%",
                                     height: "40px",
-                                    float: "left",
                                     borderColor: "white",
                                     backgroundColor: "white",
                                     fontWeight: "bold",
