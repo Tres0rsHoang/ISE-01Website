@@ -14,6 +14,7 @@ import LecturerCourseMaterials from "./Pages/LecturerCourseMaterials";
 import LecturerCourseAssignments from "./Pages/LecturerCourseAssignments";
 
 import LecturerInformation from "./Pages/LecturerInformation";
+import LecturerChangePassword from "./Pages/LecturerChangePassword"
 
 function App() {
   return (
@@ -32,8 +33,8 @@ function App() {
             <Route path='/LecturerCourseDetail' element={<LecturerCourseDetail/>}/>
             <Route path='/LecturerCourseMaterials' element={<LecturerCourseMaterials/>}/>
             <Route path='/LecturerCourseAssignments' element={<LecturerCourseAssignments/>}/>
-
             <Route path='/LecturerInformation' element={<LecturerInformation/>} />
+            <Route path='/LecturerChangePassword' element={<LecturerChangePassword/>}/>
         </Routes>
       </Router>
   );
