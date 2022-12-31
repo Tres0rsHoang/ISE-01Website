@@ -2,12 +2,16 @@ import React from "react";
 import eduUs from "../img/Group 82.svg";
 import logo from "../img/Group 256.svg"
 import { Button, Form, FloatingLabel, FormControl} from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse } from '@fortawesome/free-solid-svg-icons'
+
 function LoginPage() {
     return (
         <div id={'background'}>
             <div id={'container'}>
                 <div id={'left-container'}>
-                    <a href="/"><i className={'fa-solid fa-house'} id={'home-btn'}></i></a>
+                    <a href="/"><FontAwesomeIcon icon={faHouse} id={'home-btn'}/></a>
+                    {/* fa-solid fa-house */}
                     <div id='introContent'>
                         <img src={logo} alt={'logo'}></img>
                         <img src={eduUs} alt={'logo'}></img>

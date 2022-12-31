@@ -21,31 +21,31 @@ function LecturerCourseAssignments() {
                             <Breadcrumb.Item href="/LecturerCourseAssignments">Assignments</Breadcrumb.Item>
                         </Breadcrumb>
                         <div className="listAssignments mt-3 d-flex flex-column justify-content-start" style={{ maxHeight: "520px" }}>
-                            <NavLink className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                            <NavLink to="/LecturerAssignmentDetail" className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
                                 <Button className="assignmentButton mx-3 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
                                     <img src={fileIcon} alt="fileIcon"></img>
                                 </Button>
                                 <p className="assignmentName w-75 mb-0">Assignment 1 - Due: 12/12/2022</p>
                             </NavLink>
-                            <NavLink className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                            <NavLink to="/LecturerAssignmentDetail" className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
                                 <Button className="assignmentButton mx-3 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
                                     <img src={fileIcon} alt="fileIcon"></img>
                                 </Button>
                                 <p className="assignmentName w-75 mb-0">Assignment 2 - Due: 12/12/2022</p>
                             </NavLink>
-                            <NavLink className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                            <NavLink to="/LecturerAssignmentDetail" className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
                                 <Button className="assignmentButton mx-3 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
                                     <img src={fileIcon} alt="fileIcon"></img>
                                 </Button>
                                 <p className="assignmentName w-75 mb-0">Assignment 3 - Due: 12/12/2022</p>
                             </NavLink>
-                            <NavLink className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                            <NavLink to="/LecturerAssignmentDetail" className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
                                 <Button className="assignmentButton mx-3 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
                                     <img src={fileIcon} alt="fileIcon"></img>
                                 </Button>
                                 <p className="assignmentName w-75 mb-0">Assignment 4 - Due: 12/12/2022</p>
                             </NavLink>
-                            <NavLink className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
+                            <NavLink to="/LecturerAssignmentDetail" className="assignment w-75 pb-3 mb-4 d-flex align-items-center" style={{ fontWeight: "600" }}>
                                 <Button className="assignmentButton mx-3 d-flex justify-content-center align-items-center" style={{ width: "40px", height: "40px" }}>
                                     <img src={fileIcon} alt="fileIcon"></img>
                                 </Button>
