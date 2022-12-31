@@ -13,6 +13,7 @@ import LecturerCourseDetail from "./Pages/LecturerCourseDetail";
 import LecturerCourseMaterials from "./Pages/LecturerCourseMaterials";
 import LecturerCourseAssignments from "./Pages/LecturerCourseAssignments";
 import LecturerAssignmentDetail from "./Pages/LecturerAssignmentDetail";
+import LecturerSubmittedList from "./Pages/LecturerSubmittedList";
 import DashboardAdmin from "./Pages/DashboardAdmin";
 import StudentManagement from "./Pages/StudentManagmentAdmin";
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <Route path='/LecturerCourseMaterials' element={<LecturerCourseMaterials/>}/>
             <Route path='/LecturerCourseAssignments' element={<LecturerCourseAssignments/>}/>
             <Route path='/LecturerAssignmentDetail' element={<LecturerAssignmentDetail/>}/>
+            <Route path='/LecturerSubmittedList' element={<LecturerSubmittedList/>}/>
         </Routes>
       </Router>
   );

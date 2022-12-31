@@ -40,7 +40,7 @@ function LecturerAssignmentDetail() {
                             <div id="submittedGroup" className="w-75 mt-3 d-flex align-items-center">
                                 <p className="fw-bold m-0 me-3">Number of student submitted: </p>
                                 <p className="m-0 me-3 py-1 px-2" style={{border: "2px solid black", borderRadius: "8px", backgroundColor: "rgba(0, 0, 0, 0.1)"}}>50/53</p>
-                                <Button className="viewSubmittedBtn">View list</Button>
+                                <Button className="viewSubmittedBtn" href="/LecturerSubmittedList">View list</Button>
                             </div>
                         </div>
                     </div>
