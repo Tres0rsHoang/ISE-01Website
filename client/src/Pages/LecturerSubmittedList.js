@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { Content } from "../Components/Content";
 import { Breadcrumb, Table, Button } from "react-bootstrap";
-// import { NavLink } from "react-router-dom";
 function LecturerSubmittedList() {
     return (
         <Fragment>
