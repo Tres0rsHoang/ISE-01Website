@@ -4,8 +4,8 @@ const knex = require('knex')({
         host : '127.0.0.1',
         port : 5432,
         user : 'postgres',
-        password : '132456789',
-        database : 'students_db'
+        password : '17092002',
+        database : 'ELearningSystem'
     },
     pool: {min: 0, max: 10}
 });
@@ -54,4 +54,20 @@ app.post('/Admin/AddNewStudent', async (req, res) =>{
         await knex('account').insert(req.body);
         res.json({mess: 'Added a new student successfully.'});
     }
+});
+
+app.get('/Lecturer', async (req, res) => {
+    const CourseCount = await knex('course').count().where('lecturerid', req.query.userId);
+    res.json({
+        CourseCount: CourseCount[0].count,
+    });
+});
+
+app.get('/Lecturer/Courses', async (req, res) => {
+    const listCourse = await knex.select('c.coursename', 'a.fullname').from('course as c')
+                    .join('account as a', 'a.id', 'c.lecturerid')
+                    .where('lecturerid', req.query.userId);
+    res.json({
+        list: listCourse
+    })
 });

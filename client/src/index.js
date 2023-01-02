@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './CssFile/HomePage.css'
-import './CssFile/LoginPage.css'
-import './CssFile/Dashboard.css'
-import './CssFile/Content.css'
-import './CssFile/AdminPage.css'
+import './CssFile/HomePage.css';
+import './CssFile/LoginPage.css';
+import './CssFile/Dashboard.css';
+import './CssFile/Content.css';
+// Lecturer Screens
+import './CssFile/Lecturer.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

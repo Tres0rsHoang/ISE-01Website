@@ -6,10 +6,16 @@ import HomePage from "./Pages/HomePage";
 import DashboardStudent from "./Pages/DashboardStudent";
 import LoginPage from "./Pages/LoginPage";
 import Test from "./Pages/Test";
+// Lecturer Screen
+import LecturerDashboard from "./Pages/LecturerDashboard";
+import LecturerMyCourses from "./Pages/LecturerMyCourses";
+import LecturerCourseDetail from "./Pages/LecturerCourseDetail";
+import LecturerCourseMaterials from "./Pages/LecturerCourseMaterials";
+import LecturerCourseAssignments from "./Pages/LecturerCourseAssignments";
+import LecturerAssignmentDetail from "./Pages/LecturerAssignmentDetail";
+import LecturerSubmittedList from "./Pages/LecturerSubmittedList";
 import DashboardAdmin from "./Pages/DashboardAdmin";
 import StudentManagement from "./Pages/StudentManagmentAdmin";
-import AddNewStudent from "./Pages/AddNewStudentAdmin";
-
 function App() {
   return (
       <Router>
@@ -22,7 +28,13 @@ function App() {
             <Route path='/Admin' element={<DashboardAdmin/>}/>
             <Route path='/Admin/StudentManagement' element={<StudentManagement/>}/>
             <Route path="/Test" element = {<Test/>}/>
-            <Route path='/Admin/AddNewStudent' element={<AddNewStudent/>}/>
+            <Route path='/LecturerDashboard' element={<LecturerDashboard/>}/>
+            <Route path='/LecturerMyCourses' element={<LecturerMyCourses/>}/>
+            <Route path='/LecturerCourseDetail' element={<LecturerCourseDetail/>}/>
+            <Route path='/LecturerCourseMaterials' element={<LecturerCourseMaterials/>}/>
+            <Route path='/LecturerCourseAssignments' element={<LecturerCourseAssignments/>}/>
+            <Route path='/LecturerAssignmentDetail' element={<LecturerAssignmentDetail/>}/>
+            <Route path='/LecturerSubmittedList' element={<LecturerSubmittedList/>}/>
         </Routes>
       </Router>
   );

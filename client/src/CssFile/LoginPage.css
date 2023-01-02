@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
 /* Background */
 #background {
     background-image: url('../img/Background.png');
@@ -29,7 +35,7 @@
     width: 40%;
     padding: 40px;
     float: left;
-    background-color:#00838F;
+    background-color: #00838F;
     color: #FFFFFF;
     border-radius: 40px 0 0 40px;
 }
@@ -49,7 +55,7 @@
     margin: auto 0;
 }
 
-#left-container #introContent img{
+#left-container #introContent img {
     width: 25%;
     color: #00BCD4;
     justify-items: center;
@@ -80,42 +86,69 @@
     border-radius: 0 40px 40px 0;
 }
 
-#right-container form {
+#right-container p {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+#right-container .login-form {
     margin: 32px 0;
     width: 80%;
     height: 60%;
 }
 
-#right-container form label {
-    color:rgba(0, 0, 0, 0.7);
+/* Login Form */
+#right-container .login-form #userGroup,
+#right-container .login-form #passGroup {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
 }
 
-#right-container form .inputGroup {
-    display: flex;
-    flex-direction: column;
-    padding: 8px;
-    justify-content: center;
-    margin-top: 32px;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    border-radius: 8px;
-    height: 44px;
-    line-height: 44px;
+#right-container .login-form #userGroup:focus,
+#right-container .login-form #passGroup:focus {
+    box-shadow: none;
+    border: 3px solid #00BCD4;
 }
 
-#right-container form .inputGroup:hover {
-    border: 2px solid #00bcd4;
-    color:#FFA000;
+#right-container .login-form a {
+    color: #FFA000;
+    float: right;
 }
 
-#right-container form .inputText {
-    display: none;
-    width: 100%;
+#right-container .login-form .mb-3 label,
+#right-container .login-form .mb-5 label {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+#right-container .login-form .mb-3 input:focus~label {
+    color: #FFA000;
+}
+
+#right-container .login-form .form-check-input {
+    height: 20px;
+    width: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+#right-container .login-form .form-check-input:focus {
+    box-shadow: none;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- */
+/* Submit Button */
+#right-container .login-form .btn {
+    display: block;
+    color: #FFFFFF;
+    background-color: #FFA000;
     border: none;
+    width: 100%;
+    text-transform: uppercase;
 }
 
-#right-container form #moreDetails {
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    margin: 16px 0 32px 0;
+#right-container .login-form .btn:hover {
+    border: 1px solid #FFA000;
+    background-color: #FFFFFF;
+    color: #FFA000;
 }

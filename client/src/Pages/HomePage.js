@@ -40,7 +40,7 @@ function HomePage(){
                         <li className="fs-2 fw-bold">HCMUS Edu</li>
                         <li className="fs-5"><div>Enrich your knowledge and get a head start into your<br></br>next career.</div></li>
                         <li style={{position: 'relative', bottom: '25px'}}>
-                            <NavLink to="/EmptyPage" activeStyle><button class="btn btn-secondary Contact">Sign in</button></NavLink>
+                            <NavLink to="/LoginPage" activeStyle><button class="btn btn-secondary Contact">Sign in</button></NavLink>
                         </li>
                     </ul></li>
 

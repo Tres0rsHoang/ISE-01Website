@@ -1,15 +1,17 @@
 import React from "react";
-
 import eduUs from "../img/Group 82.svg";
 import logo from "../img/Group 256.svg"
+import { Button, Form, FloatingLabel, FormControl} from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse } from '@fortawesome/free-solid-svg-icons'
 
-import { Button, Form, FormLabel, FormText } from "react-bootstrap";
-function LoginPage(){
-    return(
+function LoginPage() {
+    return (
         <div id={'background'}>
             <div id={'container'}>
                 <div id={'left-container'}>
-                    <a href="/"><i className={'fa-solid fa-house'} id={'home-btn'}></i></a>
+                    <a href="/"><FontAwesomeIcon icon={faHouse} id={'home-btn'}/></a>
+                    {/* fa-solid fa-house */}
                     <div id='introContent'>
                         <img src={logo} alt={'logo'}></img>
                         <img src={eduUs} alt={'logo'}></img>
@@ -18,28 +20,43 @@ function LoginPage(){
                     </div>
                 </div>
                 <div id='right-container'>
-                    <h1>Login</h1>
-                    <Form action="">
-                        <div id="groupName" class="inputGroup">
-                            <FormLabel for="name">Name:</FormLabel>
-                            <FormText type="text" id="name" class="inputText" name="name"></FormText>
-                        </div>
-                        <div id="groupPass" class="inputGroup">
-                            <label for="pass">Password:</label>
-                            <input type="password" id="pass" class="inputText" name="password"></input>
-                        </div>
-                        <div id="moreDetails">
-                            <div id="groupRemember">
-                                <input type="checkbox" id="remember" name="remember"></input>
-                                <label for="remember">Remember</label>
-                            </div>
-                            <a href="/">Forgot password?</a>
-                        </div>
-                        <Button variant="contained">Continue</Button>
+                    <p>Login</p>
+                    <Form className={"login-form"}>
+                        <FloatingLabel
+                            controlId={"userGroup"}
+                            className={"mb-3"}
+                            label={"Username"}>
+                            <FormControl
+                                type={"text"}
+                                name={"username"}
+                                controlId={"username"}
+                                placeholder={"Enter username"}
+                                required
+                            />
+                        </FloatingLabel>
+                        <FloatingLabel
+                            controlId={"passGroup"}
+                            className={"mb-3"}
+                            label={"Password"}>
+                            <FormControl
+                                type={"password"}
+                                name={"password"}
+                                controlId={"password"}
+                                placeholder={"Enter password"}
+                                required
+                            />
+                        </FloatingLabel>
+                        <Form.Check inline className={"mb-5"}
+                            id={"remember"}
+                            name={"remember"}
+                            label={"Remember"}
+                            type={"checkbox"} />
+                        <a href="/">Forgot password?</a>
+                        <Button type="submit">Continue</Button>
                     </Form>
                 </div>
             </div>
-        </div>  
+        </div>
     );
 }
 export default LoginPage;

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --darkgreen: #074F6B;
+}
+
+/* Lecturer Dashboard */
+#lecturerDashboard .cardDashboard p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* Lecturer My Courses */
+#lecturerMyCourses,
+#lecturerCourseDetail,
+#lecturerCourseAssignments,
+#lecturerCourseMaterials,
+#lecturerAssignmentDetail {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/* Lecturer Course Detail */
+#lecturerCourseDetail {
+    color: black;
+}
+
+#lecturerCourseDetail a,
+#lecturerCourseMaterials a,
+#lecturerCourseAssignments a,
+#lecturerAssignmentDetail a{
+    color: black;
+}
+
+#lecturerCourseDetail .lessonList,
+#lecturerCourseMaterials .lessonList,
+#lecturerCourseAssignments .lessonList,
+#lecturerAssignmentDetail .lessonList {
+    border-left: 2px solid black;
+    overflow-y: auto;
+}
+
+#lecturerCourseDetail .lessonSection .btn, 
+#lecturerCourseMaterials .lessonSection .btn,
+#lecturerCourseMaterials .courseTitleBtn .btn,
+#lecturerCourseAssignments .lessonSection .btn,
+#lecturerCourseAssignments .courseTitleBtn .btn,
+#lecturerAssignmentDetail .lessonSection .btn,
+#lecturerAssignmentDetail .courseSection .btn{
+    border: 2px solid var(--darkgreen);
+    background-color: var(--darkgreen) !important;
+    color: #FFFFFF !important;
+    outline: none;
+}
+
+#lecturerCourseDetail .lessonList .lesson,
+#lecturerCourseMaterials .lessonList .lesson,
+#lecturerCourseAssignments .lessonList .lesson {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Lecturer Course Materials */
+#lecturerCourseMaterials .listMaterials,
+#lecturerCourseAssignments .listAssignments {
+    overflow-y: auto;
+}
+
+#lecturerCourseMaterials .material,
+#lecturerCourseAssignments .assignment {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+#lecturerCourseMaterials .material .downloadButton,
+#lecturerCourseAssignments .assignment .assignmentButton {
+    border: 0px solid var(--darkgreen);
+    background-color: var(--darkgreen) !important;
+    color: #FFFFFF !important;
+    outline: none;
+}
+
+#lecturerCourseMaterials .material .deleteButton {
+    border: 1px solid var(--darkgreen);
+    background-color: white;
+    color: var(--darkgreen) !important;
+}
