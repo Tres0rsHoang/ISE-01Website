@@ -1,10 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 
 import eduUs from "../img/Group 82.svg";
 import logo from "../img/Group 256.svg"
 
-import { Button, Form, FormLabel, FormText } from "react-bootstrap";
-function LoginPage(){
+import { Button,Form } from "react-bootstrap";
+import {useNavigate} from 'react-router-dom';
+function LoginPage() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    let navigate = useNavigate();
+    const Login = () =>{
+        console.log(username + '   ' + password);
+        localStorage.setItem("accessToken", "123456");
+        //navigate('/admin');
+    }
     return(
         <div id={'background'}>
             <div id={'container'}>
@@ -20,26 +29,27 @@ function LoginPage(){
                 <div id='right-container'>
                     <h1>Login</h1>
                     <Form action="">
-                        <div id="groupName" class="inputGroup">
-                            <FormLabel for="name">Name:</FormLabel>
-                            <FormText type="text" id="name" class="inputText" name="name"></FormText>
+                        <div id="groupName" className="inputGroup">
+                            <label>Name:</label>
+                            <input type="text" className="inputText" value={username} onChange={(e) => {setUsername(e.target.value);}}></input>
                         </div>
-                        <div id="groupPass" class="inputGroup">
-                            <label for="pass">Password:</label>
-                            <input type="password" id="pass" class="inputText" name="password"></input>
+                        <div id="groupPass" className="inputGroup">
+                            <label>Password:</label>
+                            <input type="password" className="inputText" value={password} onChange={(e)=>{setPassword(e.target.value);}}></input>
                         </div>
                         <div id="moreDetails">
                             <div id="groupRemember">
                                 <input type="checkbox" id="remember" name="remember"></input>
-                                <label for="remember">Remember</label>
+                                <label htmlFor="remember">Remember</label>
                             </div>
                             <a href="/">Forgot password?</a>
                         </div>
-                        <Button variant="contained">Continue</Button>
+                        <Button variant="contained" onClick={Login}>Continue</Button>
                     </Form>
                 </div>
             </div>
-        </div>  
+        </div>
     );
+
 }
 export default LoginPage;

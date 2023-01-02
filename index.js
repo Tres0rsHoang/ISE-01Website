@@ -4,7 +4,7 @@ const knex = require('knex')({
         host : '127.0.0.1',
         port : 5432,
         user : 'postgres',
-        password : '132456789',
+        password : 'bao01932',
         database : 'students_db'
     },
     pool: {min: 0, max: 10}
@@ -29,6 +29,7 @@ app.get('/', (req, res) => {
 app.listen(5000, () => {
     console.log('App listening on port 5000')
 })
+
 app.get('/Admin',async (req, res)=>{
     const StudentCount = await knex('account').count().where('usertype', 3);
     const CourseCount = await knex('course').count();

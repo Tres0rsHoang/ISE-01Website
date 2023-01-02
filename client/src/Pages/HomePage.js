@@ -17,7 +17,7 @@ function HomePage(){
             <div id = {'PageFormat'} className={'shadow-lg rounded'}>
                 <div style={{width: '200px', height: '75px', background: 'white', position: 'absolute'}}></div>
                 <div style={{width: '75px', height: '75px', borderRadius: '50%', position: 'absolute', marginLeft: '150px', background: 'white'} }></div>
-                <img src={pic1} alt="picture1" style={{marginLeft: '630px', marginTop: '150px'}} className={'picture'}></img>
+                <img src={pic1} alt={"picture1"} style={{marginLeft: '630px', marginTop: '150px'}} className={'picture'}></img>
                 <img src={pic2} alt="picture2" style={{marginLeft: '750px', marginTop: '210px'}} className={'picture'}></img>
 
                 <ul>
