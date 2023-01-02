@@ -1,12 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import eduUs from "../img/Group 82.svg";
 import logo from "../img/Group 256.svg"
 import { Button, Form, FloatingLabel, FormControl} from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
+import { Button,Form } from "react-bootstrap";
+import {useNavigate} from 'react-router-dom';
 
 function LoginPage() {
-    return (
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    let navigate = useNavigate();
+    const Login = () =>{
+        console.log(username + '   ' + password);
+        localStorage.setItem("accessToken", "123456");
+        //navigate('/admin');
+    }
+    return(
         <div id={'background'}>
             <div id={'container'}>
                 <div id={'left-container'}>
@@ -58,5 +68,6 @@ function LoginPage() {
             </div>
         </div>
     );
+
 }
 export default LoginPage;

@@ -5,6 +5,7 @@ import {BsBookmark} from "react-icons/bs";
 import {TiMortarBoard} from "react-icons/ti";
 import {IoPeopleOutline} from "react-icons/io5";
 import axios from "axios";
+import LoginPage from "./LoginPage";
 
 class DashboardAdmin extends Component{
     state ={
@@ -22,6 +23,7 @@ class DashboardAdmin extends Component{
         });
     }
     render(){
+        if (localStorage.getItem("accessToken") !== '123456') return <LoginPage/>
         return(
             <Fragment>
                 <AdminNavBar>
