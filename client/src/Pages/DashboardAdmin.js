@@ -1,29 +1,42 @@
 import React, {Component, Fragment} from "react";
 import { AdminNavBar } from "../Components/AdminNavBar";
+import { Navigate } from "react-router-dom"
 
 import {BsBookmark} from "react-icons/bs";
 import {TiMortarBoard} from "react-icons/ti";
 import {IoPeopleOutline} from "react-icons/io5";
 import axios from "axios";
-import LoginPage from "./LoginPage";
+import EmptyPage from "./EmptyPage";
 
 class DashboardAdmin extends Component{
-    state ={
-        StudentNum: '',
-        CourseNum: '',
-        LecturerNum: ''
+    constructor(props){
+        super(props);
+        this.state ={
+            user: {},
+            StudentNum: '',
+            CourseNum: '',
+            LecturerNum: ''
+        }
     }
-    componentDidMount() {
-        axios.get('/Admin').then(result=>{
+
+    async componentDidMount() {
+        const config = {
+            headers:{
+                Authorization: localStorage.getItem('accessToken'),
+            }
+        }
+        await axios.get('/Admin', config).then(result=>{
             this.setState({
                 StudentNum: result.data.StudentCount,
                 CourseNum: result.data.CourseCount,
                 LecturerNum: result.data.LecturerCount,
+                user: result.data.user
             });
         });
     }
+
     render(){
-        if (localStorage.getItem("accessToken") !== '123456') return <LoginPage/>
+        if (localStorage.getItem("accessToken") === '' || this.state.user.usertype !== 1) return <EmptyPage/>
         return(
             <Fragment>
                 <AdminNavBar>

@@ -5,13 +5,15 @@ import moment from "moment/moment";
 
 class StudentManagement extends Component{
     state = {
-        List: []
+        List: [],
+        user: {}
     }
     componentDidMount() {
         axios.get(`/Admin/StudentManagement${window.location.search}` ).then(
             result=>{
                 this.setState({
-                    List: result.data.List
+                    List: result.data.List,
+                    user: result.data.user,
                 })
             }
         )

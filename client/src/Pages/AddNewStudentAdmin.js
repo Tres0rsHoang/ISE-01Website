@@ -1,10 +1,20 @@
 import React, {Component, Fragment} from "react";
 import { AdminNavBar } from "../Components/AdminNavBar";
 import axios from "axios";
+import EmptyPage from "./EmptyPage";
 
 class AddNewStudent extends Component{
     state = {
-        mess: ''
+        mess: '',
+        user: {}
+    }
+    async componentDidMount() {
+        const config = {
+            headers:{
+                Authorization: localStorage.getItem('accessToken'),
+            }
+        }
+        await axios.get('/Admin/AddNewStudent', config).then(res=>{this.setState({user: res.data.user})});
     }
     async sendInfo(event){
         event.preventDefault();
@@ -19,13 +29,16 @@ class AddNewStudent extends Component{
             registerdate: cDate,
             usertype: 3
         }
+
         await axios.post('/Admin/AddNewStudent', newStudent).then(
             res=>{
-                this.setState({mess: res.data.mess});
+                this.setState({mess: res.data.mess, user: res.data.user});
             }
         );
+
     }
     render() {
+        if (localStorage.getItem("accessToken") === '' || this.state.user.usertype !== 1) return <EmptyPage/>
         return (
             <Fragment>
                 <AdminNavBar>

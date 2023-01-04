@@ -9,6 +9,7 @@ import DashboardAdmin from "./Pages/DashboardAdmin";
 import StudentManagement from "./Pages/StudentManagmentAdmin";
 import Test from "./Pages/Test";
 import AddNewStudent from "./Pages/AddNewStudentAdmin";
+import CourseAdmin from "./Pages/CourseAdmin";
 
 
 export default function AppRouter(){
@@ -21,6 +22,7 @@ export default function AppRouter(){
             <Route path='/Student' element={<DashboardStudent/>}/>
             <Route path='/Admin' element={<DashboardAdmin/>}/>
             <Route path='/Admin/StudentManagement' element={<StudentManagement/>}/>
+            <Route path='Admin/CourseManagement' element={<CourseAdmin/>}/>
             <Route path="/Test" element = {<Test/>}/>
             <Route path='/Admin/AddNewStudent' element={<AddNewStudent/>}/>
         </Routes>
