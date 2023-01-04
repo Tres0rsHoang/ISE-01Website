@@ -1,13 +1,15 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Content } from "../Components/Content";
 import { Button, Breadcrumb } from "react-bootstrap";
-import { NavLink, useLocation, useSearchParams} from "react-router-dom";
+import { NavLink, useLocation} from "react-router-dom";
 import ReactPlayer from "react-player";
 import fileIcon from "../img/fileIcon.svg";
 import axios from "axios";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 function LecturerCourseDetail () {
+    const search = useLocation();
+    const courseID = search.pathname.split("/")[3];
+    const coursePathName = search.pathname;
     const [state, setState] = useState({
         courseName: '',
         lecturerName: '',
@@ -17,7 +19,7 @@ function LecturerCourseDetail () {
         lessonsList: []
     });
     useEffect(() =>{
-        axios.get('/Lecturer/CourseDetail', { params: { userId: 4, courseId: 'CSC101', lessonName: 'Lesson 01' } }).then(result => {
+        axios.get('/Lecturer/CourseDetail', { params: { userId: 4, courseId: courseID, lessonName: 'Lesson 01' } }).then(result => {
             setState({
                 courseName: result.data.courseDetail.coursename,
                 lecturerName: result.data.courseDetail.fullname,
@@ -30,8 +32,9 @@ function LecturerCourseDetail () {
     },[5]);
     const resLessons = [];
     for (let i = 0;i < state.lessonsList.length; i++){
+        var lessonPath = coursePathName + "/" + state.lessonsList[i].lessonname.split("-")[0].split(" ")[0] + state.lessonsList[i].lessonname.split("-")[0].split(" ")[1];
         resLessons.push(
-            <NavLink to="/LecturerCourseDetail">
+            <NavLink to={lessonPath}>
                 <li className="lesson mb-3">
                     <p className="lessonName mb-1" style={{ fontWeight: "600" }}>{state.lessonsList[i].lessonname.split("-")[1]}</p>
                     <div className="lessonDetail d-flex align-items-center" style={{ fontSize: "0.8rem", opacity: "0.7" }}>
@@ -43,9 +46,6 @@ function LecturerCourseDetail () {
             </NavLink>
         )
     }
-    const search = useLocation(); // could be '?foo=bar'
-    //const params = new URLSearchParams(search);
-    console.log(search.pathname.split("/")[3]);
     return (
         <Fragment>
             <Content>
