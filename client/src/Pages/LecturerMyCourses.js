@@ -21,8 +21,10 @@ class LecturerMyCourses extends Component {
     render() {
         const res = []
         this.state.courseList.forEach((course, index) => {
+            var courseURL = "/Lecturer/Courses/" + course.courseid;
+            console.log(courseURL);
             res.push(
-                <NavLink to="/LecturerCourseDetail" className="d-flex justify-content-center mb-5 mx-5" style={{ width: "25%", color: "black" }}>
+                <NavLink to={courseURL} className="d-flex justify-content-center mb-5 mx-5" style={{ width: "25%", color: "black" }}>
                     <Card className="cardDashboard" style={{ width: "100%" }}>
                         <img src={coursesThumbnail} alt="courses thumbnail"></img>
                         <p className="courseName mt-3 px-3" style={{ fontSize: "1.25rem" }}>{course.coursename}</p>

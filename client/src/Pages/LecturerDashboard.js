@@ -21,7 +21,7 @@ class LecturerDashboard extends Component {
             <Fragment>
                 <Content>
                     <div id={"lecturerDashboard"} style={{ padding: "2rem" }}>
-                        <NavLink to={"/LecturerMyCourses"} style={{ color: "black" }}>
+                        <NavLink to={"/Lecturer/Courses"} style={{ color: "black" }}>
                             <Card className={"cardDashboard p-3"} style={{ width: "240px", backgroundColor: "#FEF6FB" }}>
                                 <Card.Title className={"card-title"}>
                                     <FontAwesomeIcon icon={faBookmark} id={'bookmarkIcon'} style={{ fontSize: "28px", color: "#C358A5" }}></FontAwesomeIcon>

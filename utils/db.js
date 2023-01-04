@@ -5,7 +5,7 @@ const knex = require('knex')({
         port : 5432,
         user : process.env.DATABASE_USER,
         password : process.env.DATABASE_PASS,
-        database : 'students_db'
+        database : 'ELearningSystem'
     },
     pool: {min: 0, max: 10}
 });
