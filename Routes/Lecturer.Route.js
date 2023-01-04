@@ -25,7 +25,7 @@ router.get('/CourseDetail', async (req, res) => {
     //     courseId: req.query.courseId,
     //     lessonName: req.query.lessonName
     // })
-    const courseDetail = await knex.select('c.coursename', 'a.fullname', 'l.lessonname', 'l.lessondescription').from('course as c')
+    const courseDetail = await knex.select('c.coursename', 'a.fullname', 'l.lessonname', 'l.lessondescription', 'l.linkvideo').from('course as c')
                                             .join('account as a', 'a.id', 'c.lecturerid')
                                             .join('lesson as l', 'l.courseid', 'c.courseid')
                                             .where('c.lecturerid', '=', req.query.userId)
