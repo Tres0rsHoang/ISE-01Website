@@ -5,6 +5,7 @@ import { NavLink, useLocation, useSearchParams} from "react-router-dom";
 import ReactPlayer from "react-player";
 import fileIcon from "../img/fileIcon.svg";
 import axios from "axios";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 function LecturerCourseDetail () {
     const [state, setState] = useState({
@@ -42,9 +43,9 @@ function LecturerCourseDetail () {
             </NavLink>
         )
     }
-    const search = useLocation().search; // could be '?foo=bar'
-    const params = new URLSearchParams(search);
-    console.log(params.get('id'));
+    const search = useLocation(); // could be '?foo=bar'
+    //const params = new URLSearchParams(search);
+    console.log(search.pathname.split("/")[3]);
     return (
         <Fragment>
             <Content>
