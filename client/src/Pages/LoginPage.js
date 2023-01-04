@@ -21,7 +21,6 @@ function LoginPage() {
             password: password,
         }
         await axios.post('/login', account).then(res=>{
-            console.log( res.data.Token);
             accessToken = res.data.Token.accessToken;
             user = res.data.user;
         });

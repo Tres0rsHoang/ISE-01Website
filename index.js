@@ -40,8 +40,6 @@ app.get('/Lecturer', async (req, res) => {
         CourseCount: CourseCount[0].count,
     });
 });
-
-
 app.get('/Lecturer/Courses', async (req, res) => {
     const listCourse = await knex.select('c.coursename', 'a.fullname').from('course as c')
                     .join('account as a', 'a.id', 'c.lecturerid')

@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from "react";
 import { AdminNavBar } from "../Components/AdminNavBar";
-import { Navigate } from "react-router-dom"
 
 import {BsBookmark} from "react-icons/bs";
 import {TiMortarBoard} from "react-icons/ti";
