@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import { Content } from "../Components/Content";
+import { Content } from "../../Components/Content";
 import { Button, Breadcrumb } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import fileIcon from "../img/fileIcon.svg";
+import fileIcon from "../../img/fileIcon.svg";
 
 function LecturerCourseAssignments() {
     return (

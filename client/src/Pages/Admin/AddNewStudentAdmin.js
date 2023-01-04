@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from "react";
-import { AdminNavBar } from "../Components/AdminNavBar";
+import { AdminNavBar } from "../../Components/AdminNavBar";
 import axios from "axios";
-import EmptyPage from "./EmptyPage";
+import EmptyPage from "../EmptyPage";
 
 class AddNewStudent extends Component{
     state = {
@@ -12,9 +12,13 @@ class AddNewStudent extends Component{
         const config = {
             headers:{
                 Authorization: localStorage.getItem('accessToken'),
+                refreshtoken: localStorage.getItem('refreshToken'),
             }
         }
-        await axios.get('/Admin/AddNewStudent', config).then(res=>{this.setState({user: res.data.user})});
+        await axios.get('/Admin/AddNewStudent', config).then(res=>{
+            this.setState({user: res.data.user,});
+            console.log(res.data.user)
+        });
     }
     async sendInfo(event){
         event.preventDefault();
@@ -29,13 +33,11 @@ class AddNewStudent extends Component{
             registerdate: cDate,
             usertype: 3
         }
-
         await axios.post('/Admin/AddNewStudent', newStudent).then(
             res=>{
-                this.setState({mess: res.data.mess, user: res.data.user});
+                this.setState({mess: res.data.mess});
             }
         );
-
     }
     render() {
         if (localStorage.getItem("accessToken") === '' || this.state.user.usertype !== 1) return <EmptyPage/>

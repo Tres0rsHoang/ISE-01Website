@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
-import { Content } from "../Components/Content";
+import { Content } from "../../Components/Content";
 import { Button, Breadcrumb } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import sampleVideo from "../img/sampleMP4Video.mp4";
-import fileIcon from "../img/fileIcon.svg";
+import sampleVideo from "../../img/sampleMP4Video.mp4";
+import fileIcon from "../../img/fileIcon.svg";
 // import axios from "axios";
 class LecturerCourseDetail extends Component {
     state = {}

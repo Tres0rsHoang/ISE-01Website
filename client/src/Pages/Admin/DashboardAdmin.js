@@ -1,11 +1,11 @@
 import React, {Component, Fragment} from "react";
-import { AdminNavBar } from "../Components/AdminNavBar";
+import { AdminNavBar } from "../../Components/AdminNavBar";
 
 import {BsBookmark} from "react-icons/bs";
 import {TiMortarBoard} from "react-icons/ti";
 import {IoPeopleOutline} from "react-icons/io5";
 import axios from "axios";
-import EmptyPage from "./EmptyPage";
+import EmptyPage from "../EmptyPage";
 
 class DashboardAdmin extends Component{
     constructor(props){
@@ -17,11 +17,11 @@ class DashboardAdmin extends Component{
             LecturerNum: ''
         }
     }
-
     async componentDidMount() {
         const config = {
             headers:{
                 Authorization: localStorage.getItem('accessToken'),
+                RefreshToken: localStorage.getItem('refreshToken'),
             }
         }
         await axios.get('/Admin', config).then(result=>{
@@ -32,6 +32,7 @@ class DashboardAdmin extends Component{
                 user: result.data.user
             });
         });
+        if (this.state.user.accessToken !== undefined) localStorage.setItem("accessToken", this.state.user.accessToken);
     }
 
     render(){

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Content } from "../Components/Content";
+import { Content } from "../../Components/Content";
 import { Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

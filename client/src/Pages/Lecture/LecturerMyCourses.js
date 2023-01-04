@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
-import { Content } from "../Components/Content";
+import { Content } from "../../Components/Content";
 import { Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import coursesThumbnail from "../img/CoursesThumbnail.svg";
+import coursesThumbnail from "../../img/CoursesThumbnail.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import axios from "axios";

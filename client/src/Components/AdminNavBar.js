@@ -71,7 +71,7 @@ export class AdminNavBar extends React.Component{
                         <a href={"/Admin"}><li id="Nav-item"><AiOutlineHome/> Home</li></a>
                         <a href={"/Admin/CourseManagement"}><li id="Nav-item"><BsBookmark/> Course</li></a>
                         <a href={"/Admin/StudentManagement"}><li id="Nav-item"><TiMortarBoard/> Student</li></a>
-                        <a href={"/Admin/LecturerManagement"}><li id="Nav-item"><IoPeopleOutline/> Lectures</li></a>
+                        <a href={"/Admin/LectureManagement"}><li id="Nav-item"><IoPeopleOutline/> Lectures</li></a>
                         <li id="Nav-item" style={{marginTop: "500px"}}><IoLogOutOutline/> Logout</li>
                     </ul>
                 </div>
