@@ -111,8 +111,8 @@ function LecturerCourseAssignments() {
                             </NavLink>
                         </ul>
                         <div className="courseElementBtns pt-5 d-flex flex-column align-items-center">
-                            <Button href="/LecturerCourseAssignments" className="assignmentsBtn w-50 mb-4" style={{ height: "44px" }}><img className="me-2" src={fileIcon} alt="fileIcon"></img>Assignments</Button>
-                            <Button href="/LecturerCourseMaterials" className="materialsBtn w-50" style={{ height: "44px" }}><img className="me-2" src={fileIcon} alt="fileIcon"></img>Materials</Button>
+                            <Button href="/LecturerCourseAssignments" className="assignmentsBtn w-50 mb-4 d-flex justify-content-center align-items-center" style={{ height: "44px" }}><img className="me-2" src={fileIcon} alt="fileIcon"></img>Assignments</Button>
+                            <Button href="/LecturerCourseMaterials" className="materialsBtn w-50 d-flex justify-content-center align-items-center" style={{ height: "44px" }}><img className="me-2" src={fileIcon} alt="fileIcon"></img>Materials</Button>
                         </div>
                     </div>
                 </div>

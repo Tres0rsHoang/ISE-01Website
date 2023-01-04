@@ -15,6 +15,8 @@ const knex = require('knex')({
     },
     pool: {min: 0, max: 10}
 });
+
+const { response } = require('express');
 app.use(bp.json())
 app.use(bp.urlencoded({ extended: true }))
 
@@ -52,7 +54,6 @@ app.get('/Admin',  async (req, res, next)=>{
     const StudentCount = await knex('account').count().where('usertype', 3);
     const CourseCount = await knex('course').count();
     const LecturerCount = await knex('account').count().where('usertype', 2);
-
     res.json({
         StudentCount: StudentCount[0].count,
         CourseCount: CourseCount[0].count,
@@ -122,5 +123,28 @@ app.get('/Lecturer/Courses', async (req, res) => {
                     .where('lecturerid', req.query.userId);
     res.json({
         list: listCourse
+    })
+});
+
+app.get('/Lecturer/CourseDetail', async (req, res) => {
+    // res.json({
+    //     userId: req.query.userId,
+    //     courseId: req.query.courseId,
+    //     lessonName: req.query.lessonName
+    // })
+    const courseDetail = await knex.select('c.coursename', 'a.fullname', 'l.lessonname', 'l.lessondescription').from('course as c')
+                                            .join('account as a', 'a.id', 'c.lecturerid')
+                                            .join('lesson as l', 'l.courseid', 'c.courseid')
+                                            .where('c.lecturerid', '=', req.query.userId)
+                                            .andWhere('c.courseid', '=', req.query.courseId)
+                                            .andWhereLike('l.lessonname', req.query.lessonName+'%')
+                                            // .andWhere('l.lessonname', '=', req.query.lessonName)
+    const lessons = await knex.select('l.lessonname').from('lesson as l')
+                              .join('course as c', 'c.courseid', 'l.courseid')
+                              .where('c.courseid', '=', req.query.courseId)
+                              .orderBy('l.lessonname', 'asc');
+    res.json({
+        courseDetail: courseDetail[0],
+        lessons: lessons
     })
 });
