@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Content } from "../Components/Content";
 import { Button, Breadcrumb } from "react-bootstrap";
-import { NavLink, useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import ReactPlayer from "react-player";
 import fileIcon from "../img/fileIcon.svg";
 import axios from "axios";
@@ -9,6 +9,25 @@ import axios from "axios";
 function LecturerCourseDetail () {
     const search = useLocation();
     const courseID = search.pathname.split("/")[3];
+    var lessonNth = search.pathname.split("/")[4];
+    var assignmentPath;
+    var materialPath;
+    var courseDetailPath = "";
+    if(lessonNth === undefined){
+        courseDetailPath = search.pathname;
+        assignmentPath = search.pathname + "/Assignments";
+        materialPath = search.pathname + "/Materials";
+        lessonNth = 'Lesson 01';
+    } 
+    else {
+        courseDetailPath = search.pathname.substring(0, search.pathname.lastIndexOf("/"));
+        assignmentPath = search.pathname.replace(search.pathname.split("/")[4], "Assignments");
+        materialPath = search.pathname.replace(search.pathname.split("/")[4], "Materials");
+        lessonNth = lessonNth.replace("%20", " ");
+    }
+    const myCoursesPath = courseDetailPath.substring(0, courseDetailPath.lastIndexOf("/"));
+    const lecturerDashboardPath = myCoursesPath.substring(0, myCoursesPath.lastIndexOf("/"));
+    const addLessonPath = courseDetailPath + "/AddLesson";
     const coursePathName = search.pathname;
     const [state, setState] = useState({
         courseName: '',
@@ -19,7 +38,7 @@ function LecturerCourseDetail () {
         lessonsList: []
     });
     useEffect(() =>{
-        axios.get('/Lecturer/CourseDetail', { params: { userId: 4, courseId: courseID, lessonName: 'Lesson 01' } }).then(result => {
+        axios.get('/Lecturer/CourseDetail', { params: { userId: 4, courseId: courseID, lessonName: lessonNth } }).then(result => {
             setState({
                 courseName: result.data.courseDetail.coursename,
                 lecturerName: result.data.courseDetail.fullname,
@@ -29,21 +48,25 @@ function LecturerCourseDetail () {
                 lessonsList: result.data.lessons
             })
         });
-    },[5]);
+    }, [5]);
     const resLessons = [];
+    var lessonPath;
     for (let i = 0;i < state.lessonsList.length; i++){
-        var lessonPath = coursePathName + "/" + state.lessonsList[i].lessonname.split("-")[0].split(" ")[0] + state.lessonsList[i].lessonname.split("-")[0].split(" ")[1];
+        if(search.pathname.split("/")[4] === undefined){
+            lessonPath = coursePathName + "/" + state.lessonsList[i].lessonname.split("-")[0];
+        }
+        else {
+            lessonPath = coursePathName.replace(search.pathname.split("/")[4], state.lessonsList[i].lessonname.split("-")[0]);
+        }
         resLessons.push(
-            <NavLink to={lessonPath}>
+            <a href={lessonPath}>
                 <li className="lesson mb-3">
                     <p className="lessonName mb-1" style={{ fontWeight: "600" }}>{state.lessonsList[i].lessonname.split("-")[1]}</p>
                     <div className="lessonDetail d-flex align-items-center" style={{ fontSize: "0.8rem", opacity: "0.7" }}>
                         <p className="lessonNum" >{state.lessonsList[i].lessonname.split("-")[0]}</p>
-                        {/* <p className="mx-2">&#183;</p>
-                        <p className="lessonLength">10 mins</p> */}
                     </div>
                 </li>
-            </NavLink>
+            </a>
         )
     }
     return (
@@ -53,9 +76,9 @@ function LecturerCourseDetail () {
                     <div className="courseSection" style={{ width: "70%" }}>
                         <h3 className="mt-4" style={{ fontWeight: "600" }}>Intro To Software Engineering</h3>
                         <Breadcrumb className="breadcrumb mb-0">
-                            <Breadcrumb.Item href="/LecturerDashboard">Dashboard</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/LecturerMyCourses">My Courses</Breadcrumb.Item>
-                            <Breadcrumb.Item href="/LecturerCourseDetail">{state.courseName}</Breadcrumb.Item>
+                            <Breadcrumb.Item href={lecturerDashboardPath}>Dashboard</Breadcrumb.Item>
+                            <Breadcrumb.Item href={myCoursesPath}>My Courses</Breadcrumb.Item>
+                            <Breadcrumb.Item href={courseDetailPath}>{state.courseName}</Breadcrumb.Item>
                         </Breadcrumb>
                         <ReactPlayer url={state.lessonVideoPath} width="90%" height="70%" style={{ borderRadius: "32px"}} controls></ReactPlayer>
                         <div className="currentLessonDetail">
@@ -63,75 +86,20 @@ function LecturerCourseDetail () {
                             <p className="lecturerName" style={{ fontWeight: "600" }}>{state.lecturerName}</p>
                             <p className="currentLessonDesc" style={{ width: "90%", fontSize: "0.8rem", textAlign: "justify" }}>
                                 {state.lessonDescription}
-                                {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus sit amet nisi et congue. Aliquam viverra
-                                interdum rutrum. Curabitur lobortis dui metus. Fusce a arcu mauris. Praesent feugiat bibendum tincidunt.
-                                Nam eu malesuada nisl. Vestibulum posuere imperdiet volutpat. Donec metus massa, hendrerit sit amet ante quis,
-                                mollis dictum risus. Vivamus auctor nibh tellus, eget sollicitudin tortor sollicitudin ac. Nulla facilisi.
-                                Sed tincidunt mattis feugiat. Donec porttitor ante ac magna viverra lacinia. */}
                             </p>
                         </div>
                     </div>
                     <div className="lessonSection" style={{ width: "30%" }}>
                         <div className="lessonTitleGroup pt-4 pb-5 d-flex justify-content-between align-items-center">
                             <h4 className="mb-0 ps-3 d-flex align-items-center" style={{ fontWeight: "600" }}>Lessons</h4>
-                            <Button className="d-flex justify-content-center align-items-center" style={{ height: "36px" }}>New Lesson</Button>
+                            <Button href={addLessonPath} className="d-flex justify-content-center align-items-center" style={{ height: "36px" }}>New Lesson</Button>
                         </div>
                         <ul className="lessonList ps-3" style={{ height: "404px" }}>
                             {resLessons}
-                            {/* <NavLink to="/LecturerCourseDetail">
-                                <li className="lesson mb-3">
-                                    <p className="lessonName mb-1" style={{ fontWeight: "600" }}>Lesson Name</p>
-                                    <div className="lessonDetail d-flex align-items-center" style={{ fontSize: "0.8rem", opacity: "0.7" }}>
-                                        <p className="lessonNum" >Lesson 1</p>
-                                        <p className="mx-2">&#183;</p>
-                                        <p className="lessonLength">10 mins</p>
-                                    </div>
-                                </li>
-                            </NavLink>
-                            <NavLink to="/LecturerCourseDetail">
-                                <li className="lesson mb-3">
-                                    <p className="lessonName mb-1" style={{ fontWeight: "600" }}>Lesson Name</p>
-                                    <div className="lessonDetail d-flex align-items-center" style={{ fontSize: "0.8rem", opacity: "0.7" }}>
-                                        <p className="lessonNum" >Lesson 1</p>
-                                        <p className="mx-2">&#183;</p>
-                                        <p className="lessonLength">10 mins</p>
-                                    </div>
-                                </li>
-                            </NavLink>
-                            <NavLink to="/LecturerCourseDetail">
-                                <li className="lesson mb-3">
-                                    <p className="lessonName mb-1" style={{ fontWeight: "600" }}>Lesson Name</p>
-                                    <div className="lessonDetail d-flex align-items-center" style={{ fontSize: "0.8rem", opacity: "0.7" }}>
-                                        <p className="lessonNum" >Lesson 1</p>
-                                        <p className="mx-2">&#183;</p>
-                                        <p className="lessonLength">10 mins</p>
-                                    </div>
-                                </li>
-                            </NavLink>
-                            <NavLink to="/LecturerCourseDetail">
-                                <li className="lesson mb-3">
-                                    <p className="lessonName mb-1" style={{ fontWeight: "600" }}>Lesson Name</p>
-                                    <div className="lessonDetail d-flex align-items-center" style={{ fontSize: "0.8rem", opacity: "0.7" }}>
-                                        <p className="lessonNum" >Lesson 1</p>
-                                        <p className="mx-2">&#183;</p>
-                                        <p className="lessonLength">10 mins</p>
-                                    </div>
-                                </li>
-                            </NavLink>
-                            <NavLink to="/LecturerCourseDetail">
-                                <li className="lesson mb-3">
-                                    <p className="lessonName mb-1" style={{ fontWeight: "600" }}>Lesson Name</p>
-                                    <div className="lessonDetail d-flex align-items-center" style={{ fontSize: "0.8rem", opacity: "0.7" }}>
-                                        <p className="lessonNum" >Lesson 1</p>
-                                        <p className="mx-2">&#183;</p>
-                                        <p className="lessonLength">10 mins</p>
-                                    </div>
-                                </li>
-                            </NavLink> */}
                         </ul>
                         <div className="courseElementBtns pt-5 d-flex flex-column align-items-center">
-                            <Button href="/LecturerCourseAssignments" className="assignmentsBtn w-50 mb-4 d-flex justify-content-center align-items-center" style={{ height: "44px" }}><img className="me-2" src={fileIcon} alt="fileIcon"></img>Assignments</Button>
-                            <Button href="/LecturerCourseMaterials" className="materialsBtn w-50 d-flex justify-content-center align-items-center" style={{ height: "44px" }}><img className="me-2" src={fileIcon} alt="fileIcon"></img>Materials</Button>
+                            <Button href={assignmentPath} className="assignmentsBtn w-50 mb-4 d-flex justify-content-center align-items-center" style={{ height: "44px" }}><img className="me-2" src={fileIcon} alt="fileIcon"></img>Assignments</Button>
+                            <Button href={materialPath} className="materialsBtn w-50 d-flex justify-content-center align-items-center" style={{ height: "44px" }}><img className="me-2" src={fileIcon} alt="fileIcon"></img>Materials</Button>
                         </div>
                     </div>
                 </div>
