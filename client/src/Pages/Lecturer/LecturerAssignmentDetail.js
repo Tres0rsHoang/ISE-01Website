@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Content } from "../Components/Content";
+import { LecturerNavBar } from "../../Components/LecturerNavBar";
 import { Button, Breadcrumb, Form, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
-import fileIcon from "../img/fileIcon.svg";
+import fileIcon from "../../img/fileIcon.svg";
 import axios from "axios";
 
 function LecturerAssignmentDetail() {
@@ -56,7 +56,7 @@ function LecturerAssignmentDetail() {
     }
     return (
         <Fragment>
-            <Content>
+            <LecturerNavBar>
                 <div id="lecturerAssignmentDetail" className="d-flex" style={{ padding: "2rem" }}>
                     <div className="courseSection" style={{ width: "70%" }}>
                         <h3 className="mt-4" style={{ fontWeight: "600" }}>{state.courseName} - Assignments</h3>
@@ -123,7 +123,7 @@ function LecturerAssignmentDetail() {
                         </div>
                     </div>
                 </div>
-            </Content>
+            </LecturerNavBar>
         </Fragment>
     );
 }

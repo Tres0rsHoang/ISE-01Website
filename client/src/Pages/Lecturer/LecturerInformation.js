@@ -1,21 +1,18 @@
 import React, { Fragment } from "react";
-import { Content } from "../Components/Content";
+import { LecturerNavBar } from "../../Components/LecturerNavBar";
 import { Button, Breadcrumb } from "react-bootstrap";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 
-
 function LecturerInformation() {
     return (
         <Fragment>
-            <Content>
+            <LecturerNavBar>
                 <div id="lecturerChangeInfo" className="d-flex" style={{ padding: "2rem" }}>
                     <div className="AccountInformation w-25" style={{marginRight: "20%"}}>
                         <h3 style={{color:"black"}}> Account Informations</h3>
                         <div className="courseElementBtns pt-5 d-flex flex-column" style={{ borderRight: "2px solid black" }} >
-
                             <Button href="/LecturerInformation" className="assignmentsBtn mb-4 ps-4 py-2 fs-5 d-flex justify-content-start align-items-center"
                                 style={{
                                     width: "80%",
@@ -85,7 +82,7 @@ function LecturerInformation() {
                         </form>
                     </div>
                 </div>
-            </Content>
+            </LecturerNavBar>
         </Fragment >
     );
 }

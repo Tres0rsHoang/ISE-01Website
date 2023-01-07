@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Content } from "../../Components/Content";
+import { LecturerNavBar } from "../../Components/LecturerNavBar";
 import { Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import coursesThumbnail from "../../img/CoursesThumbnail.svg";
@@ -36,7 +36,7 @@ class LecturerMyCourses extends Component {
         });
         return (
             <Fragment>
-                <Content>
+                <LecturerNavBar>
                     <div id="lecturerMyCourses" style={{ padding: "2rem" }}>
                         <h3 className="my-4" style={{ fontWeight: "600" }}>My Courses</h3>
                         <div id="listOfCourse" className="d-flex justify-content-between flex-wrap">
@@ -97,7 +97,7 @@ class LecturerMyCourses extends Component {
                             </NavLink> */}
                         </div>
                     </div>
-                </Content>
+                </LecturerNavBar>
             </Fragment>
         );
     }

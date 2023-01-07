@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Content } from "../Components/Content";
+import { LecturerNavBar } from "../../Components/LecturerNavBar";
 import { Button, Breadcrumb } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock } from '@fortawesome/free-solid-svg-icons'
@@ -8,7 +8,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 function LecturerChangePassword() {
     return (
         <Fragment>
-            <Content>
+            <LecturerNavBar>
                 <div id="lecturerChangeInfo" className="d-flex" style={{ padding: "2rem" }}>
                     <div className="AccountInformation w-25" style={{ marginRight: "20%" }}>
                         <h3 style={{ color: "black" }}> Account Informations</h3>
@@ -71,7 +71,7 @@ function LecturerChangePassword() {
                         </form>
                     </div>
                 </div>
-            </Content>
+            </LecturerNavBar>
         </Fragment >
     );
 }

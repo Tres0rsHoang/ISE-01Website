@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import { Content } from "../../Components/Content";
+import { LecturerNavBar } from "../../Components/LecturerNavBar";
 import { Breadcrumb, Table, Button } from "react-bootstrap";
 function LecturerSubmittedList() {
     return (
         <Fragment>
-            <Content>
+            <LecturerNavBar>
                 <div id="lecturerAssignmentDetail" className="d-flex" style={{ padding: "2rem" }}>
                     <div className="courseSection" style={{ width: "100%" }}>
                         <h3 className="mt-4" style={{ fontWeight: "600" }}>Intro To Software Engineering - Assignment 02 Submitted List</h3>
@@ -84,7 +84,7 @@ function LecturerSubmittedList() {
                         </Table>
                     </div>
                 </div>
-            </Content>
+            </LecturerNavBar>
         </Fragment>
     );
 }

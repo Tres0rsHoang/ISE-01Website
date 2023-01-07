@@ -1,9 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Content } from "../Components/Content";
+import { LecturerNavBar } from "../../Components/LecturerNavBar";
 import { Button, Breadcrumb } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import ReactPlayer from "react-player";
-import fileIcon from "../img/fileIcon.svg";
+import fileIcon from "../../img/fileIcon.svg";
 import axios from "axios";
 
 function LecturerCourseDetail () {
@@ -71,10 +71,10 @@ function LecturerCourseDetail () {
     }
     return (
         <Fragment>
-            <Content>
+            <LecturerNavBar>
                 <div id="lecturerCourseDetail" className="d-flex" style={{ padding: "2rem" }}>
                     <div className="courseSection" style={{ width: "70%" }}>
-                        <h3 className="mt-4" style={{ fontWeight: "600" }}>Intro To Software Engineering</h3>
+                        <h3 className="mt-4" style={{ fontWeight: "600" }}>{state.courseName}</h3>
                         <Breadcrumb className="breadcrumb mb-0">
                             <Breadcrumb.Item href={lecturerDashboardPath}>Dashboard</Breadcrumb.Item>
                             <Breadcrumb.Item href={myCoursesPath}>My Courses</Breadcrumb.Item>
@@ -103,7 +103,7 @@ function LecturerCourseDetail () {
                         </div>
                     </div>
                 </div>
-            </Content>
+            </LecturerNavBar>
         </Fragment>
     );
 }

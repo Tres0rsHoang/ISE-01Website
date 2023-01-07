@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Content } from "../Components/Content";
+import { LecturerNavBar } from "../../Components/LecturerNavBar";
 import { Button, Breadcrumb, Form, FormControl } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faTrash } from '@fortawesome/free-solid-svg-icons'
-import fileIcon from "../img/fileIcon.svg";
+import fileIcon from "../../img/fileIcon.svg";
 import axios from "axios";
 
 function LecturerCourseMaterials() {
@@ -95,7 +95,7 @@ function LecturerCourseMaterials() {
     }
     return ( 
         <Fragment>
-            <Content>
+            <LecturerNavBar>
                 <div id="lecturerCourseMaterials" className="d-flex" style={{ padding: "2rem" }}>
                     <div className="courseSection" style={{ width: "70%" }}>
                         <div className="courseTitleBtn d-flex justify-content-between align-items-center">
@@ -126,7 +126,7 @@ function LecturerCourseMaterials() {
                         </div>
                     </div>
                 </div>
-            </Content>
+            </LecturerNavBar>
         </Fragment>
     );
 }

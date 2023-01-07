@@ -13,13 +13,13 @@ import EditStudent from "./Pages/Admin/EditStudent";
 import LectureManagement from "./Pages/Admin/LectureManagment";
 import AddNewLecture from "./Pages/Admin/AddNewLecture";
 import EditLecture from "./Pages/Admin/EditLecture";
-import DashboardLecturer from './Pages/LecturerDashboard';
-import LecturerCourses from './Pages/LecturerMyCourses';
-import LecturerCourseDetail from './Pages/LecturerCourseDetail';
-import LecturerCourseAssignments from './Pages/LecturerCourseAssignments';
-import LecturerCourseMaterials from './Pages/LecturerCourseMaterials';
-import LecturerAssignmentDetail from './Pages/LecturerAssignmentDetail';
-import LecturerAddLesson from './Pages/LecturerAddLesson';
+import DashboardLecturer from './Pages/Lecturer/LecturerDashboard';
+import LecturerCourses from './Pages/Lecturer/LecturerMyCourses';
+import LecturerCourseDetail from './Pages/Lecturer/LecturerCourseDetail';
+import LecturerCourseAssignments from './Pages/Lecturer/LecturerCourseAssignments';
+import LecturerCourseMaterials from './Pages/Lecturer/LecturerCourseMaterials';
+import LecturerAssignmentDetail from './Pages/Lecturer/LecturerAssignmentDetail';
+import LecturerAddLesson from './Pages/Lecturer/LecturerAddLesson';
 export default function AppRouter(){
     return (
         <Routes>
@@ -30,7 +30,7 @@ export default function AppRouter(){
                 <Route path='/Student' element={<DashboardStudent/>}/>
                 <Route path='/Admin' element={<Dashboard/>}/>
                 <Route path='/Admin/StudentManagement' element={<StudentManagement/>}/>
-                <Route path='/Admin/LectureManagement' element={<LectureManagement/>}/>
+                <Route path='/Admin/LecturerManagement' element={<LectureManagement/>}/>
                 <Route path='/Admin/CourseManagement' element={<CourseAdmin/>}/>
 
                 <Route path='/Admin/EditStudent/:id' element={<EditStudent />}/>

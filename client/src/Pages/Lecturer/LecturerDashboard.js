@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Content } from "../../Components/Content";
+import { LecturerNavBar } from "../../Components/LecturerNavBar";
 import { Card } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,7 +19,7 @@ class LecturerDashboard extends Component {
     render() {
         return (
             <Fragment>
-                <Content>
+                <LecturerNavBar>
                     <div id={"lecturerDashboard"} style={{ padding: "2rem" }}>
                         <NavLink to={"/Lecturer/Courses"} style={{ color: "black" }}>
                             <Card className={"cardDashboard p-3"} style={{ width: "240px", backgroundColor: "#FEF6FB" }}>
@@ -31,7 +31,7 @@ class LecturerDashboard extends Component {
                             </Card>
                         </NavLink>
                     </div>
-                </Content>
+                </LecturerNavBar>
             </Fragment>
         );
     }
