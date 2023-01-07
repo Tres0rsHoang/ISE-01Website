@@ -5,6 +5,7 @@ const bp = require('body-parser')
 const TokenManager = require('./middleWare/token');
 const AdminRoute = require('./Routes/Admin.Route');
 const LecturerRoutes = require('./Routes/Lecturer.Route');
+const StudentRoute = require('./Routes/Student.Route')
 const knex = require('./utils/db');
 
 app.use(bp.json())
@@ -23,6 +24,8 @@ app.listen(5000, () => {
 app.use('/Admin', AdminRoute);
 
 app.use('/Lecturer', LecturerRoutes);
+
+app.use('/Student', StudentRoute);
 
 app.post('/login', async (req, res)=>{
     const username = req.body.username;

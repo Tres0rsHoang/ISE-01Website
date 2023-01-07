@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes} from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import EmptyPage from "./Pages/EmptyPage";
-import DashboardStudent from "./Pages/Student/DashboardStudent";
+
 import LoginPage from "./Pages/LoginPage";
 import Dashboard from "./Pages/Admin/Dashboard";
 import StudentManagement from "./Pages/Admin/StudentManagment";
@@ -20,14 +20,20 @@ import LecturerCourseAssignments from './Pages/Lecturer/LecturerCourseAssignment
 import LecturerCourseMaterials from './Pages/Lecturer/LecturerCourseMaterials';
 import LecturerAssignmentDetail from './Pages/Lecturer/LecturerAssignmentDetail';
 import LecturerAddLesson from './Pages/Lecturer/LecturerAddLesson';
+
+import DashboardStudent from "./Pages/Student/DashboardStudent";
+import StudentCourseDetail from "./Pages/Student/StudentCourseDetail";
+import StudentCourseAssignments from "./Pages/Student/StudentCourseAssignments";
+import StudentAssignmentDetail from "./Pages/Student/StudentAssignmentDetail";
+import StudentCourseMaterials from './Pages/Student/StudentCourseMaterial';
 export default function AppRouter(){
     return (
         <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/EmptyPage' element={<EmptyPage/>} />
-                <Route path='/DashboardStudent' element={<DashboardStudent/>}/>
+                
                 <Route path='/Login' element={<LoginPage/>}/>
-                <Route path='/Student' element={<DashboardStudent/>}/>
+                
                 <Route path='/Admin' element={<Dashboard/>}/>
                 <Route path='/Admin/StudentManagement' element={<StudentManagement/>}/>
                 <Route path='/Admin/LecturerManagement' element={<LectureManagement/>}/>
@@ -50,6 +56,12 @@ export default function AppRouter(){
                 <Route path='/Lecturer/Courses/:courseid/Assignments/:assignmentname' element={<LecturerAssignmentDetail/>}/>
                 <Route path='/Lecturer/Courses/:courseid/AddLesson' element={<LecturerAddLesson/>}/>
                 
+                <Route path='/Student' element={<DashboardStudent/>}/>
+                <Route path='/Student/Courses/:courseid' element={<StudentCourseDetail/>}/>
+                <Route path='/Student/Courses/:courseid/:lessonNth' element={<StudentCourseDetail/>}/>
+                <Route path='/Student/Courses/:courseid/Assignments' element={<StudentCourseAssignments/>}/>
+                <Route path='/Student/Courses/:courseid/Assignments/:assignmentname' element={<StudentAssignmentDetail/>}/>
+                <Route path='/Student/Courses/:courseid/Materials' element={<StudentCourseMaterials/>}/>
                 <Route path="/Test" element = {<Test/>}/>
         </Routes>
     )
