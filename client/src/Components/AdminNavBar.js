@@ -7,11 +7,9 @@ import {IoPeopleOutline} from "react-icons/io5";
 import {IoLogOutOutline} from "react-icons/io5";
 import {MdOutlineAccountCircle} from "react-icons/md";
 import ___img_SearchIcon_svg from "../img/SearchIcon.svg";
-
+import {Button} from "react-bootstrap";
 export class AdminNavBar extends React.Component{
-
-    render()
-    {
+    render() {
         let State = false;
         let Lock = false;
         function sleep(ms) {
@@ -62,22 +60,27 @@ export class AdminNavBar extends React.Component{
             DashBoard.style.display = "none";
             main.style.marginLeft = "0%";
         }
+        const Logout = () => {
+            localStorage.setItem("accessToken", '');
+            localStorage.setItem("refreshToken", '');
+        }
         return (
             <div>
                 <div style={{backgroundColor: "#074F6B", position:"absolute", width:"100vw", height:"100vh"}}></div>
                 <div style={{width: "100%", height:"100px",backgroundColor:"#074F6B"}}></div>
-                <div className={"w3-animate-left"} id={"DashboardMenu"} style={{height: "calc(100vh - 100px"}}>
+                <div className={"w3-animate-left"} id={"DashboardMenu"} style={{height: "calc(100vh - 100px)"}}>
                     <ul>
                         <a href={"/Admin"}><li id="Nav-item"><AiOutlineHome/> Home</li></a>
                         <a href={"/Admin/CourseManagement"}><li id="Nav-item"><BsBookmark/> Course</li></a>
                         <a href={"/Admin/StudentManagement"}><li id="Nav-item"><TiMortarBoard/> Student</li></a>
                         <a href={"/Admin/LectureManagement"}><li id="Nav-item"><IoPeopleOutline/> Lectures</li></a>
-                        <li id="Nav-item" style={{marginTop: "500px"}}><IoLogOutOutline/> Logout</li>
+                        <a href={"/"}><li id="Nav-item" style={{marginTop: "calc(100vh - 500px)"}}><Button onClick={Logout}><IoLogOutOutline/> Logout</Button></li></a>
                     </ul>
                 </div>
                 <div id={"EduText"} className={'fw-bolder'}>EduUS</div>
                 <img src={Logo} id={"Logo"} onMouseOver={LogoIO} onMouseLeave={LogoIO} onClick={LogoClick}
                      alt={"Logo"}></img>
+
                 <div id={"main"} style={{overflow: "scroll", height: "calc(100vh - 100px", overflowX: "hidden"}}>
                     <form className="form-inline my-2 my-lg-0">
                         <button style={{

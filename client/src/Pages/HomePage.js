@@ -40,7 +40,7 @@ function HomePage(){
                         <li className="fs-2 fw-bold">HCMUS Edu</li>
                         <li className="fs-5"><div>Enrich your knowledge and get a head start into your<br></br>next career.</div></li>
                         <li style={{position: 'relative', bottom: '25px'}}>
-                            <NavLink to="/LoginPage" activeStyle><button class="btn btn-secondary Contact">Sign in</button></NavLink>
+                            <NavLink to="/Login" activestyle="true"><button className={"btn btn-secondary Contact"}>Sign in</button></NavLink>
                         </li>
                     </ul></li>
 
@@ -53,7 +53,7 @@ function HomePage(){
 
                     <li><ul style={{listStyleType: 'none', width: '1080px', position: 'absolute', marginTop: '280px', padding: '0'}} className={"text-center"}>
                         <li className={"Learning"}>
-                            <NavLink to="/EmptyPage" activeStyle>
+                            <NavLink to="/EmptyPage" activestyle="true">
                                 <button className="btn btn-outline-primary Course">
                                     <img src={CourseLogo} alt="CourseLogo" className={"CourseLogo"} style={{bottom: '20px'}}></img>
                                     <div className={"CourseName"}>Online Learning</div>
@@ -64,7 +64,7 @@ function HomePage(){
                             </NavLink>
                         </li>
                         <li className="Learning">
-                            <NavLink to="/EmptyPage" activeStyle>
+                            <NavLink to="/EmptyPage" activestyle="true">
                                 <button className="btn btn-outline-primary Course">
                                     <img src={CourseLogo} alt="CourseLogo" className={"CourseLogo"} style={{bottom: '20px'}}></img>
                                     <div className={"CourseName"}>Online Learning</div>
@@ -75,7 +75,7 @@ function HomePage(){
                             </NavLink>
                         </li>
                         <li className="Learning">
-                            <NavLink to="/EmptyPage" activeStyle>
+                            <NavLink to="/EmptyPage" activestyle="true">
                                 <button className="btn btn-outline-primary Course">
                                     <img src={CourseLogo} alt="CourseLogo" className={"CourseLogo"} style={{bottom: '20px'}}></img>
                                     <div className={"CourseName"}>Online Learning</div>
@@ -87,7 +87,7 @@ function HomePage(){
                         </li>
 
                         <li className="Learning">
-                            <NavLink to="/EmptyPage" activeStyle>
+                            <NavLink to="/EmptyPage" activestyle="true">
                                 <button className="btn btn-outline-primary Course">
                                     <img src={CourseLogo} alt="CourseLogo" className={"CourseLogo"} style={{bottom: '20px'}}></img>
                                     <div className={"CourseName"}>Online Learning</div>
@@ -119,20 +119,20 @@ function HomePage(){
                                     <div style={{border: 'solid 1px white', width: '80px', marginTop: '10px', marginBottom: '10px'}}></div>
                                 </li>
 
-                                <li style={{marginTop: '10px', marginBottom: '10px'}}><NavLink to="/EmptyPage" activeStyle>About Us</NavLink></li>
-                                <li style={{marginTop: '10px', marginBottom: '10px'}}><NavLink to="/EmptyPage" activeStyle>Products</NavLink></li>
-                                <li style={{marginTop: '10px', marginBottom: '10px'}}><NavLink to="/EmptyPage" activeStyle>Contact Us</NavLink></li>
-                                <li style={{marginTop: '10px', marginBottom: '10px'}}><NavLink to="/EmptyPage" activeStyle>Terms of Services</NavLink></li>
+                                <li style={{marginTop: '10px', marginBottom: '10px'}}><NavLink to="/EmptyPage" activestyle="true">About Us</NavLink></li>
+                                <li style={{marginTop: '10px', marginBottom: '10px'}}><NavLink to="/EmptyPage" activestyle="true">Products</NavLink></li>
+                                <li style={{marginTop: '10px', marginBottom: '10px'}}><NavLink to="/EmptyPage" activestyle="true">Contact Us</NavLink></li>
+                                <li style={{marginTop: '10px', marginBottom: '10px'}}><NavLink to="/EmptyPage" activestyle="true">Terms of Services</NavLink></li>
                             </ul>
                             <ul style={{marginRight: '100px', display: 'inline-block', position: 'relative', top: '43px'}}>
                                 <li>Follow Us</li>
                                 <li>
                                     <div style={{border: 'solid 1px white', width: '80px', marginTop: '10px', marginBottom: '10px'}}></div>
                                 </li>
-                                <li className={"ContactLogo"}><NavLink to="/EmptyPage" activeStyle><img src={Fb} alt={"Fb"}></img></NavLink></li>
-                                <li className={"ContactLogo"}><NavLink to="/EmptyPage" activeStyle><img src={In} alt={"In"}></img></NavLink></li>
-                                <li className={"ContactLogo"}><NavLink to="/EmptyPage" activeStyle><img src={Tw} alt={"Tw"}></img></NavLink></li>
-                                <li className={"ContactLogo"}><NavLink to="/EmptyPage" activeStyle><img src={Ig} alt={"Ig"}></img></NavLink></li>
+                                <li className={"ContactLogo"}><NavLink to="/EmptyPage" activestyle="true"><img src={Fb} alt={"Fb"}></img></NavLink></li>
+                                <li className={"ContactLogo"}><NavLink to="/EmptyPage" activestyle="true"><img src={In} alt={"In"}></img></NavLink></li>
+                                <li className={"ContactLogo"}><NavLink to="/EmptyPage" activestyle="true"><img src={Tw} alt={"Tw"}></img></NavLink></li>
+                                <li className={"ContactLogo"}><NavLink to="/EmptyPage" activestyle="true"><img src={Ig} alt={"Ig"}></img></NavLink></li>
                             </ul></li>
                     </ul></li>
                 </ul>

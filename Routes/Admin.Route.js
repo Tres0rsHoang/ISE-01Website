@@ -15,14 +15,17 @@ router.get('/',async (req, res, next)=>{
         user: decode
     });
 });
-
-
 router.get('/CourseManagement', async (req, res)=>{
     const decode = Token.TokenDecode(req.headers.authorization, req.headers.refreshtoken);
     const page = req.query.page || 1;
     const limit = 20;
     const offset = (page-1) * limit;
-    const List = await knex('course').limit(limit).offset(offset)
+    let List = await (knex.raw("SELECT courseid, coursename, subjectid, filepath, rating, filepath, createddate, fullname\n"+
+        "FROM course join account a on course.lecturerid = a.id\n" +
+        "LIMIT ?\n" +
+        "OFFSET ?",[limit,offset]));
+    List = List.rows;
+    console.log(List);
     res.json({List: List, user: decode});
 });
 router.get('/EditStudent/:id', async (req, res)=>{

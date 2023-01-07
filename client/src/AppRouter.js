@@ -5,14 +5,14 @@ import HomePage from "./Pages/HomePage";
 import EmptyPage from "./Pages/EmptyPage";
 import DashboardStudent from "./Pages/Student/DashboardStudent";
 import LoginPage from "./Pages/LoginPage";
-import DashboardAdmin from "./Pages/Admin/DashboardAdmin";
-import StudentManagement from "./Pages/Admin/StudentManagmentAdmin";
+import Dashboard from "./Pages/Admin/Dashboard";
+import StudentManagement from "./Pages/Admin/StudentManagment";
 import Test from "./Pages/Test";
-import AddNewStudent from "./Pages/Admin/AddNewStudentAdmin";
-import CourseAdmin from "./Pages/Admin/CourseAdmin";
+import AddNewStudent from "./Pages/Admin/AddNewStudent";
+import CourseAdmin from "./Pages/Admin/CourseManagement";
 import EditStudent from "./Pages/Admin/EditStudent";
-import LectureManagement from "./Pages/Admin/LectureManagmentAdmin";
-import AddNewLecture from "./Pages/Admin/AddNewLectureAdmin";
+import LectureManagement from "./Pages/Admin/LectureManagment";
+import AddNewLecture from "./Pages/Admin/AddNewLecture";
 import EditLecture from "./Pages/Admin/EditLecture";
 
 
@@ -24,7 +24,7 @@ export default function AppRouter(){
                 <Route path='/DashboardStudent' element={<DashboardStudent/>}/>
                 <Route path='/Login' element={<LoginPage/>}/>
                 <Route path='/Student' element={<DashboardStudent/>}/>
-                <Route path='/Admin' element={<DashboardAdmin/>}/>
+                <Route path='/Admin' element={<Dashboard/>}/>
                 <Route path='/Admin/StudentManagement' element={<StudentManagement/>}/>
                 <Route path='/Admin/LectureManagement' element={<LectureManagement/>}/>
                 <Route path='/Admin/CourseManagement' element={<CourseAdmin/>}/>
