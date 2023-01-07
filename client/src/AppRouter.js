@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes} from "react-router-dom";
-
 import HomePage from "./Pages/HomePage";
 import EmptyPage from "./Pages/EmptyPage";
 import DashboardStudent from "./Pages/Student/DashboardStudent";
@@ -14,8 +13,13 @@ import EditStudent from "./Pages/Admin/EditStudent";
 import LectureManagement from "./Pages/Admin/LectureManagment";
 import AddNewLecture from "./Pages/Admin/AddNewLecture";
 import EditLecture from "./Pages/Admin/EditLecture";
-
-
+import DashboardLecturer from './Pages/LecturerDashboard';
+import LecturerCourses from './Pages/LecturerMyCourses';
+import LecturerCourseDetail from './Pages/LecturerCourseDetail';
+import LecturerCourseAssignments from './Pages/LecturerCourseAssignments';
+import LecturerCourseMaterials from './Pages/LecturerCourseMaterials';
+import LecturerAssignmentDetail from './Pages/LecturerAssignmentDetail';
+import LecturerAddLesson from './Pages/LecturerAddLesson';
 export default function AppRouter(){
     return (
         <Routes>
@@ -36,6 +40,16 @@ export default function AppRouter(){
                 <Route path='/Admin/AddNewLecture' element={<AddNewLecture/>}/>
 
                 <Route path='/Admin/DeleteStudent/:id' element={<StudentManagement/>}/>
+
+                <Route path='/Lecturer' element={<DashboardLecturer/>}/>
+                <Route path='/Lecturer/Courses' element={<LecturerCourses/>}/>
+                <Route path='/Lecturer/Courses/:courseid' element={<LecturerCourseDetail/>}/>
+                <Route path='/Lecturer/Courses/:courseid/:lessonNth' element={<LecturerCourseDetail/>}/>
+                <Route path='/Lecturer/Courses/:courseid/Assignments' element={<LecturerCourseAssignments/>}/>
+                <Route path='/Lecturer/Courses/:courseid/Materials' element={<LecturerCourseMaterials/>}/>
+                <Route path='/Lecturer/Courses/:courseid/Assignments/:assignmentname' element={<LecturerAssignmentDetail/>}/>
+                <Route path='/Lecturer/Courses/:courseid/AddLesson' element={<LecturerAddLesson/>}/>
+                
                 <Route path="/Test" element = {<Test/>}/>
         </Routes>
     )

@@ -4,6 +4,7 @@ const app = express();
 const bp = require('body-parser')
 const TokenManager = require('./middleWare/token');
 const AdminRoute = require('./Routes/Admin.Route');
+const LecturerRoutes = require('./Routes/Lecturer.Route');
 const knex = require('./utils/db');
 
 app.use(bp.json())
@@ -21,6 +22,8 @@ app.listen(5000, () => {
 
 app.use('/Admin', AdminRoute);
 
+app.use('/Lecturer', LecturerRoutes);
+
 app.post('/login', async (req, res)=>{
     const username = req.body.username;
     const password = req.body.password;
@@ -32,19 +35,4 @@ app.post('/login', async (req, res)=>{
         accountLogin.push({user: account.id,Token: Token})
         res.json({Token: Token, mess: 'Success', user: account});
     }
-});
-
-app.get('/Lecturer', async (req, res) => {
-    const CourseCount = await knex('course').count().where('lecturerid', req.query.userId);
-    res.json({
-        CourseCount: CourseCount[0].count,
-    });
-});
-app.get('/Lecturer/Courses', async (req, res) => {
-    const listCourse = await knex.select('c.coursename', 'a.fullname').from('course as c')
-                    .join('account as a', 'a.id', 'c.lecturerid')
-                    .where('lecturerid', req.query.userId);
-    res.json({
-        list: listCourse
-    })
 });
