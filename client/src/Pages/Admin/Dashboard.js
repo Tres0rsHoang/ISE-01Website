@@ -7,7 +7,7 @@ import {IoPeopleOutline} from "react-icons/io5";
 import axios from "axios";
 import EmptyPage from "../EmptyPage";
 
-class DashboardAdmin extends Component{
+class Dashboard extends Component{
     constructor(props){
         super(props);
         this.state ={
@@ -36,12 +36,23 @@ class DashboardAdmin extends Component{
     }
 
     render(){
+        const ItemInHomePage = {
+            display: "inline-block",
+            width: "250px",
+            height: "150px",
+            backgroundColor: "#F0F9FF",
+            marginRight: "10px",
+            marginLeft: "55px",
+            marginTop: "50px",
+            borderRadius: "30px",
+        }
+
         if (localStorage.getItem("accessToken") === '' || this.state.user.usertype !== 1) return <EmptyPage/>
         return(
             <Fragment>
                 <AdminNavBar>
                     <a href={"/Admin/StudentManagement"} style={{textDecoration: "inherit", color: "inherit"}}>
-                        <div className={"itemInHomepage"}>
+                        <div style={ItemInHomePage}>
                             <div style={{marginTop: "20px", marginLeft: "20px"}}>
                                 <TiMortarBoard size={50}/>
                                 <div>Student</div>
@@ -50,7 +61,7 @@ class DashboardAdmin extends Component{
                         </div>
                     </a>
                     <a href={"/Admin/CourseManagement"} style={{textDecoration: "inherit", color: "inherit"}}>
-                        <div className={"itemInHomepage"}>
+                        <div style={ItemInHomePage}>
                             <div style={{marginTop: "20px", marginLeft: "20px"}}>
                                 <BsBookmark size={50}/>
                                 <div>Course</div>
@@ -59,7 +70,7 @@ class DashboardAdmin extends Component{
                         </div>
                     </a>
                     <a href={"/Admin/LecturerManagement"} style={{textDecoration: "inherit", color: "inherit"}}>
-                        <div className={"itemInHomepage"}>
+                        <div style={ItemInHomePage}>
                             <div style={{marginTop: "20px", marginLeft: "20px"}}>
                                 <IoPeopleOutline size={50}/>
                                 <div>Lecture</div>
@@ -72,4 +83,4 @@ class DashboardAdmin extends Component{
         );
     }
 }
-export default DashboardAdmin;
+export default Dashboard;

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import eduUs from "../img/Group 82.svg";
 import logo from "../img/Group 256.svg"
 import { Button, Form, FloatingLabel, FormControl} from "react-bootstrap";
