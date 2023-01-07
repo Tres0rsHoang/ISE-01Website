@@ -1,17 +1,40 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import eduUs from "../img/Group 82.svg";
 import logo from "../img/Group 256.svg"
 import { Button, Form, FloatingLabel, FormControl} from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
+import {useNavigate} from 'react-router-dom';
+import axios from "axios";
 
 function LoginPage() {
-    return (
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [state, setState] = useState({accessToken: "", refreshToken: "", user: {}})
+
+    let navigate = useNavigate();
+    const Login = async (event) =>{
+        event.preventDefault();
+        const account = {
+            username: username,
+            password: password,
+        }
+        await axios.post('/login', account).then(res=>{
+            setState( {
+                accessToken: res.data.Token.accessToken,
+                refreshToken: res.data.Token.refreshToken,
+                user: res.data.user
+            });
+        });
+        localStorage.setItem("accessToken", state.accessToken);
+        localStorage.setItem("refreshToken", state.refreshToken);
+        if (state.user.usertype === 1) navigate('/admin');
+    }
+    return(
         <div id={'background'}>
             <div id={'container'}>
                 <div id={'left-container'}>
                     <a href="/"><FontAwesomeIcon icon={faHouse} id={'home-btn'}/></a>
-                    {/* fa-solid fa-house */}
                     <div id='introContent'>
                         <img src={logo} alt={'logo'}></img>
                         <img src={eduUs} alt={'logo'}></img>
@@ -21,7 +44,7 @@ function LoginPage() {
                 </div>
                 <div id='right-container'>
                     <p>Login</p>
-                    <Form className={"login-form"}>
+                    <Form className={"login-form"} onSubmit={event => Login(event)}>
                         <FloatingLabel
                             controlId={"userGroup"}
                             className={"mb-3"}
@@ -32,6 +55,7 @@ function LoginPage() {
                                 controlId={"username"}
                                 placeholder={"Enter username"}
                                 required
+                                onChange={(e) => setUsername(e.target.value)}
                             />
                         </FloatingLabel>
                         <FloatingLabel
@@ -44,6 +68,7 @@ function LoginPage() {
                                 controlId={"password"}
                                 placeholder={"Enter password"}
                                 required
+                                onChange={(e)=>setPassword(e.target.value)}
                             />
                         </FloatingLabel>
                         <Form.Check inline className={"mb-5"}
@@ -58,5 +83,6 @@ function LoginPage() {
             </div>
         </div>
     );
+
 }
 export default LoginPage;
