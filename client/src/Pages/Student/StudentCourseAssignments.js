@@ -4,29 +4,39 @@ import { Button, Breadcrumb } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import fileIcon from "../../img/fileIcon.svg";
+import EmptyPage from "../EmptyPage";
 import axios from "axios";
 
 
 function StudentCourseAssignments() {
     const search = useLocation();
-    const courseID = search.pathname.split("/")[3];
+    const courseID = search.pathname.split("/")[2];
     const assignmentPath = search.pathname;
-    const materialPath = search.pathname.replace(search.pathname.split("/")[4], "Materials");
+    const materialPath = search.pathname.replace(search.pathname.split("/")[3], "Materials");
     const courseDetailPath = assignmentPath.substring(0, assignmentPath.lastIndexOf("/"));
-    const myCoursesPath = courseDetailPath.substring(0, courseDetailPath.lastIndexOf("/"));
-    const addLessonPath = courseDetailPath + "/AddLesson";
-    const lecturerDashboardPath = myCoursesPath.substring(0, myCoursesPath.lastIndexOf("/"));
+    const lecturerDashboardPath = courseDetailPath.substring(0, courseDetailPath.lastIndexOf("/"));
     const [state, setState] = useState({
+        user: {},
         courseName: '',
         assignmentsList: [],
         lessonsList: []
     });
     useEffect(() =>{
-        axios.get('/Student/CourseAssignments', { params: {courseId: courseID } }).then(result => {
+        const config = {
+            headers:{
+                Authorization: localStorage.getItem('accessToken'),
+                RefreshToken: localStorage.getItem('refreshToken')
+            },
+            params:{
+                courseId: courseID
+            }
+        }
+        axios.get('/Student/CourseAssignments', config).then(result => {
             setState({
                 courseName: result.data.courseName.coursename,
                 assignmentsList: result.data.assignments,
-                lessonsList: result.data.lessons
+                lessonsList: result.data.lessons,
+                user: result.data.user
             })
         });
     }, [5]);
@@ -46,11 +56,11 @@ function StudentCourseAssignments() {
     const resLessons = [];
     var lessonPath;
     for (let i = 0;i < state.lessonsList.length; i++){
-        if(search.pathname.split("/")[4] === undefined){
+        if(search.pathname.split("/")[3] === undefined){
             lessonPath = assignmentPath + "/" + state.lessonsList[i].lessonname.split("-")[0];
         }
         else {
-            lessonPath = assignmentPath.replace(search.pathname.split("/")[4], state.lessonsList[i].lessonname.split("-")[0]);
+            lessonPath = assignmentPath.replace(search.pathname.split("/")[3], state.lessonsList[i].lessonname.split("-")[0]);
         }
         resLessons.push(
             <a href={lessonPath}>
@@ -63,6 +73,8 @@ function StudentCourseAssignments() {
             </a>
         )
     }
+    if (state.user.accessToken !== undefined) localStorage.setItem("accessToken", state.user.accessToken);
+    if (localStorage.getItem("accessToken") === '' || state.user.usertype !== 3) return <EmptyPage/>;
     return (
         <Fragment>
             <LecturerNavBar>
@@ -74,7 +86,6 @@ function StudentCourseAssignments() {
                         </div>
                         <Breadcrumb className="breadcrumb mb-0">
                             <Breadcrumb.Item href={lecturerDashboardPath}>Dashboard</Breadcrumb.Item>
-                            <Breadcrumb.Item href={myCoursesPath}>My Courses</Breadcrumb.Item>
                             <Breadcrumb.Item href={courseDetailPath}>{state.courseName}</Breadcrumb.Item>
                             <Breadcrumb.Item href={assignmentPath}>Assignments</Breadcrumb.Item>
                         </Breadcrumb>

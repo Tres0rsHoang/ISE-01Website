@@ -30,6 +30,7 @@ function LoginPage() {
         localStorage.setItem("refreshToken", state.refreshToken);
         if (state.user.usertype === 1) navigate('/admin');
         else if (state.user.usertype === 2) navigate('/lecturer');
+        else if (state.user.usertype === 3) navigate('/student');
     }
     return(
         <div id={'background'}>

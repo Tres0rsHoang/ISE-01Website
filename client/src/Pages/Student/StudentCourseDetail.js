@@ -4,14 +4,13 @@ import { Button, Breadcrumb } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import ReactPlayer from "react-player";
 import fileIcon from "../../img/fileIcon.svg";
+import EmptyPage from "../EmptyPage";
 import axios from "axios";
 
 function StudentCourseDetail () {
     const search = useLocation();
-    
-    const courseID = search.pathname.split("/")[3];
-    
-    var lessonNth = search.pathname.split("/")[4];
+    const courseID = search.pathname.split("/")[2];
+    var lessonNth = search.pathname.split("/")[3];
     var assignmentPath;
     var materialPath;
     var courseDetailPath = "";
@@ -23,15 +22,14 @@ function StudentCourseDetail () {
     } 
     else {
         courseDetailPath = search.pathname.substring(0, search.pathname.lastIndexOf("/"));
-        assignmentPath = search.pathname.replace(search.pathname.split("/")[4], "Assignments");
-        materialPath = search.pathname.replace(search.pathname.split("/")[4], "Materials");
+        assignmentPath = search.pathname.replace(search.pathname.split("/")[3], "Assignments");
+        materialPath = search.pathname.replace(search.pathname.split("/")[3], "Materials");
         lessonNth = lessonNth.replace("%20", " ");
     }
-    const myCoursesPath = courseDetailPath.substring(0, courseDetailPath.lastIndexOf("/"));
-    const lecturerDashboardPath = myCoursesPath.substring(0, myCoursesPath.lastIndexOf("/"));
-    const addLessonPath = courseDetailPath + "/AddLesson";
+    const lecturerDashboardPath = courseDetailPath.substring(0, courseDetailPath.lastIndexOf("/"));
     const coursePathName = search.pathname;
     const [state, setState] = useState({
+        user: {},
         courseName: '',
         lecturerName: '',
         lessonName: '',
@@ -41,25 +39,36 @@ function StudentCourseDetail () {
     });
     
     useEffect(() =>{
-        axios.get('/Student/CourseDetail', { params: {  courseId: courseID, lessonName: lessonNth } }).then(result => {
+        const config = {
+            headers:{
+                Authorization: localStorage.getItem('accessToken'),
+                RefreshToken: localStorage.getItem('refreshToken')
+            },
+            params:{
+                courseId: courseID, 
+                lessonName: lessonNth
+            }
+        }
+        axios.get('/Student/CourseDetail', config).then(result => {
             setState({
                 courseName: result.data.courseDetail.coursename,
                 lecturerName: result.data.courseDetail.fullname,
                 lessonName: result.data.courseDetail.lessonname,
                 lessonDescription: result.data.courseDetail.lessondescription,
                 lessonVideoPath: result.data.courseDetail.linkvideo,
-                lessonsList: result.data.lessons
+                lessonsList: result.data.lessons,
+                user: result.data.user
             })
         });
     }, [5]);
     const resLessons = [];
     var lessonPath;
     for (let i = 0;i < state.lessonsList.length; i++){
-        if(search.pathname.split("/")[4] === undefined){
+        if(search.pathname.split("/")[3] === undefined){
             lessonPath = coursePathName + "/" + state.lessonsList[i].lessonname.split("-")[0];
         }
         else {
-            lessonPath = coursePathName.replace(search.pathname.split("/")[4], state.lessonsList[i].lessonname.split("-")[0]);
+            lessonPath = coursePathName.replace(search.pathname.split("/")[3], state.lessonsList[i].lessonname.split("-")[0]);
         }
         resLessons.push(
             <a href={lessonPath}>
@@ -72,6 +81,8 @@ function StudentCourseDetail () {
             </a>
         )
     }
+    if (state.user.accessToken !== undefined) localStorage.setItem("accessToken", state.user.accessToken);
+    if (localStorage.getItem("accessToken") === '' || state.user.usertype !== 3) return <EmptyPage/>;
     return (
         <Fragment>
             <LecturerNavBar>
@@ -80,7 +91,6 @@ function StudentCourseDetail () {
                         <h3 className="mt-4" style={{ fontWeight: "600" }}>{state.courseName}</h3>
                         <Breadcrumb className="breadcrumb mb-0">
                             <Breadcrumb.Item href={lecturerDashboardPath}>Dashboard</Breadcrumb.Item>
-                            <Breadcrumb.Item href={myCoursesPath}>My Courses</Breadcrumb.Item>
                             <Breadcrumb.Item href={courseDetailPath}>{state.courseName}</Breadcrumb.Item>
                         </Breadcrumb>
                         <ReactPlayer url={state.lessonVideoPath} width="90%" height="70%" style={{ borderRadius: "32px"}} controls></ReactPlayer>

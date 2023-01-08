@@ -63,11 +63,11 @@ export default function AppRouter(){
                 <Route path='/Lecturer/Password' element={<LecturerChangePassword/>}/>
                 
                 <Route path='/Student' element={<DashboardStudent/>}/>
-                <Route path='/Student/Courses/:courseid' element={<StudentCourseDetail/>}/>
-                <Route path='/Student/Courses/:courseid/:lessonNth' element={<StudentCourseDetail/>}/>
-                <Route path='/Student/Courses/:courseid/Assignments' element={<StudentCourseAssignments/>}/>
-                <Route path='/Student/Courses/:courseid/Assignments/:assignmentname' element={<StudentAssignmentDetail/>}/>
-                <Route path='/Student/Courses/:courseid/Materials' element={<StudentCourseMaterials/>}/>
+                <Route path='/Student/:courseid' element={<StudentCourseDetail/>}/>
+                <Route path='/Student/:courseid/:lessonNth' element={<StudentCourseDetail/>}/>
+                <Route path='/Student/:courseid/Assignments' element={<StudentCourseAssignments/>}/>
+                <Route path='/Student/:courseid/Assignments/:assignmentname' element={<StudentAssignmentDetail/>}/>
+                <Route path='/Student/:courseid/Materials' element={<StudentCourseMaterials/>}/>
 
                 <Route path="/Test" element = {<Test/>}/>
         </Routes>
