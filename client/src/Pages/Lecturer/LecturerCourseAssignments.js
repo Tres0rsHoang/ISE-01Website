@@ -4,8 +4,8 @@ import { Button, Breadcrumb } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import fileIcon from "../../img/fileIcon.svg";
+import EmptyPage from "../EmptyPage";
 import axios from "axios";
-
 
 function LecturerCourseAssignments() {
     const search = useLocation();
@@ -17,16 +17,27 @@ function LecturerCourseAssignments() {
     const addLessonPath = courseDetailPath + "/AddLesson";
     const lecturerDashboardPath = myCoursesPath.substring(0, myCoursesPath.lastIndexOf("/"));
     const [state, setState] = useState({
+        user: {},
         courseName: '',
         assignmentsList: [],
         lessonsList: []
     });
     useEffect(() =>{
-        axios.get('/Lecturer/CourseAssignments', { params: { userId: 4, courseId: courseID } }).then(result => {
+        const config = {
+            headers:{
+                Authorization: localStorage.getItem('accessToken'),
+                RefreshToken: localStorage.getItem('refreshToken')
+            },
+            params:{
+                courseId: courseID
+            }
+        }
+        axios.get('/Lecturer/CourseAssignments', config).then(result => {
             setState({
                 courseName: result.data.courseName.coursename,
                 assignmentsList: result.data.assignments,
-                lessonsList: result.data.lessons
+                lessonsList: result.data.lessons,
+                user: result.data.user
             })
         });
     }, [5]);
@@ -63,6 +74,8 @@ function LecturerCourseAssignments() {
             </a>
         )
     }
+    if (state.user.accessToken !== undefined) localStorage.setItem("accessToken", state.user.accessToken);
+    if (localStorage.getItem("accessToken") === '' || state.user.usertype !== 2) return <EmptyPage/>;
     return (
         <Fragment>
             <LecturerNavBar>

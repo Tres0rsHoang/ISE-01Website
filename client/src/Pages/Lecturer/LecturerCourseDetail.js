@@ -4,6 +4,7 @@ import { Button, Breadcrumb } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import ReactPlayer from "react-player";
 import fileIcon from "../../img/fileIcon.svg";
+import EmptyPage from "../EmptyPage";
 import axios from "axios";
 
 function LecturerCourseDetail () {
@@ -30,6 +31,7 @@ function LecturerCourseDetail () {
     const addLessonPath = courseDetailPath + "/AddLesson";
     const coursePathName = search.pathname;
     const [state, setState] = useState({
+        user: {},
         courseName: '',
         lecturerName: '',
         lessonName: '',
@@ -38,14 +40,25 @@ function LecturerCourseDetail () {
         lessonsList: []
     });
     useEffect(() =>{
-        axios.get('/Lecturer/CourseDetail', { params: { userId: 4, courseId: courseID, lessonName: lessonNth } }).then(result => {
+        const config = {
+            headers:{
+                Authorization: localStorage.getItem('accessToken'),
+                RefreshToken: localStorage.getItem('refreshToken')
+            },
+            params:{
+                courseId: courseID, 
+                lessonName: lessonNth
+            }
+        }
+        axios.get('/Lecturer/CourseDetail', config).then(result => {
             setState({
                 courseName: result.data.courseDetail.coursename,
                 lecturerName: result.data.courseDetail.fullname,
                 lessonName: result.data.courseDetail.lessonname,
                 lessonDescription: result.data.courseDetail.lessondescription,
                 lessonVideoPath: result.data.courseDetail.linkvideo,
-                lessonsList: result.data.lessons
+                lessonsList: result.data.lessons,
+                user: result.data.user
             })
         });
     }, [5]);
@@ -69,6 +82,8 @@ function LecturerCourseDetail () {
             </a>
         )
     }
+    if (state.user.accessToken !== undefined) localStorage.setItem("accessToken", state.user.accessToken);
+    if (localStorage.getItem("accessToken") === '' || state.user.usertype !== 2) return <EmptyPage/>;
     return (
         <Fragment>
             <LecturerNavBar>
