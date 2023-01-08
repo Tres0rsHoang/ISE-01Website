@@ -20,6 +20,8 @@ import LecturerCourseAssignments from './Pages/Lecturer/LecturerCourseAssignment
 import LecturerCourseMaterials from './Pages/Lecturer/LecturerCourseMaterials';
 import LecturerAssignmentDetail from './Pages/Lecturer/LecturerAssignmentDetail';
 import LecturerAddLesson from './Pages/Lecturer/LecturerAddLesson';
+import LecturerInformation from './Pages/Lecturer/LecturerInformation';
+import LecturerChangePassword from './Pages/Lecturer/LecturerChangePassword';
 export default function AppRouter(){
     return (
         <Routes>
@@ -49,7 +51,8 @@ export default function AppRouter(){
                 <Route path='/Lecturer/Courses/:courseid/Materials' element={<LecturerCourseMaterials/>}/>
                 <Route path='/Lecturer/Courses/:courseid/Assignments/:assignmentname' element={<LecturerAssignmentDetail/>}/>
                 <Route path='/Lecturer/Courses/:courseid/AddLesson' element={<LecturerAddLesson/>}/>
-                
+                <Route path='/Lecturer/Information' element={<LecturerInformation/>}/>
+                <Route path='/Lecturer/Password' element={<LecturerChangePassword/>}/>
                 <Route path="/Test" element = {<Test/>}/>
         </Routes>
     )

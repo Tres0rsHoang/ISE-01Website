@@ -3,6 +3,7 @@ import { LecturerNavBar } from "../../Components/LecturerNavBar";
 import { Button, Breadcrumb, Form, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import fileIcon from "../../img/fileIcon.svg";
+import EmptyPage from "../EmptyPage";
 import axios from "axios";
 
 function LecturerCourseAssignments() {
@@ -14,14 +15,25 @@ function LecturerCourseAssignments() {
     const myCoursesPath = courseDetailPath.substring(0, courseDetailPath.lastIndexOf("/"));
     const lecturerDashboardPath = myCoursesPath.substring(0, myCoursesPath.lastIndexOf("/"));
     const [state, setState] = useState({
+        user: {},
         courseName: '',
         lessonsList: [],
     });
     useEffect(() => {
-        axios.get('/Lecturer/AddLesson', { params: { userId: 4, courseId: courseID } }).then(result => {
+        const config = {
+            headers:{
+                Authorization: localStorage.getItem('accessToken'),
+                RefreshToken: localStorage.getItem('refreshToken')
+            },
+            params:{
+                courseId: courseID
+            }
+        }
+        axios.get('/Lecturer/AddLesson', config).then(result => {
             setState({
                 courseName: result.data.courseName.coursename,
-                lessonsList: result.data.lessons
+                lessonsList: result.data.lessons,
+                user: result.data.user
             })
         });
     }, [5]);
@@ -59,6 +71,8 @@ function LecturerCourseAssignments() {
             }
         )
     }
+    if (state.user.accessToken !== undefined) localStorage.setItem("accessToken", state.user.accessToken);
+    if (localStorage.getItem("accessToken") === '' || state.user.usertype !== 2) return <EmptyPage/>;
     return (
         <Fragment>
             <LecturerNavBar>

@@ -13,7 +13,7 @@ function LecturerInformation() {
                     <div className="AccountInformation w-25" style={{marginRight: "20%"}}>
                         <h3 style={{color:"black"}}> Account Informations</h3>
                         <div className="courseElementBtns pt-5 d-flex flex-column" style={{ borderRight: "2px solid black" }} >
-                            <Button href="/LecturerInformation" className="assignmentsBtn mb-4 ps-4 py-2 fs-5 d-flex justify-content-start align-items-center"
+                            <Button href="/Lecturer/Information" className="assignmentsBtn mb-4 ps-4 py-2 fs-5 d-flex justify-content-start align-items-center"
                                 style={{
                                     width: "80%",
                                     fontWeight: "bold",
@@ -23,7 +23,7 @@ function LecturerInformation() {
                                     color: "black"
                                 }}> <FontAwesomeIcon icon={faUser} className="me-2"/>Information</Button>
 
-                            <Button href="/LecturerChangePassword" className="assignmentsBtn mb-4 ps-4 py-2 fs-5 d-flex justify-content-start align-items-center"
+                            <Button href="/Lecturer/Password" className="assignmentsBtn mb-4 ps-4 py-2 fs-5 d-flex justify-content-start align-items-center"
                                 style={{
                                     width: "80%",
                                     height: "40px",

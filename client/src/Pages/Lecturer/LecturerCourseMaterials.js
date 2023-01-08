@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload, faTrash } from '@fortawesome/free-solid-svg-icons'
 import fileIcon from "../../img/fileIcon.svg";
+import EmptyPage from "../EmptyPage";
 import axios from "axios";
 
 function LecturerCourseMaterials() {
@@ -17,16 +18,27 @@ function LecturerCourseMaterials() {
     const addLessonPath = courseDetailPath + "/AddLesson";
     const lecturerDashboardPath = myCoursesPath.substring(0, myCoursesPath.lastIndexOf("/"));
     const [state, setState] = useState({
+        user: {},
         courseName: '',
         materialsList: [],
         lessonsList: []
     });
     useEffect(() => {
-        axios.get('/Lecturer/CourseMaterials', { params: { userId: 4, courseId: courseID } }).then(result => {
+        const config = {
+            headers:{
+                Authorization: localStorage.getItem('accessToken'),
+                RefreshToken: localStorage.getItem('refreshToken')
+            },
+            params:{
+                courseId: courseID
+            }
+        }
+        axios.get('/Lecturer/CourseMaterials', config).then(result => {
             setState({
                 courseName: result.data.courseName.coursename,
                 materialsList: result.data.materials,
-                lessonsList: result.data.lessons
+                lessonsList: result.data.lessons,
+                user: result.data.user
             })
         });
     }, [5]);
@@ -93,6 +105,8 @@ function LecturerCourseMaterials() {
             }
         )
     }
+    if (state.user.accessToken !== undefined) localStorage.setItem("accessToken", state.user.accessToken);
+    if (localStorage.getItem("accessToken") === '' || state.user.usertype !== 2) return <EmptyPage/>;
     return ( 
         <Fragment>
             <LecturerNavBar>
