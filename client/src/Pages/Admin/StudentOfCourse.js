@@ -1,15 +1,15 @@
 import React, {Fragment, useEffect, useState} from "react";
 import { AdminNavBar } from "../../Components/AdminNavBar";
 import axios from "axios";
-import moment from "moment/moment";
 import {Link, useLocation} from "react-router-dom";
 import EmptyPage from "../EmptyPage";
 import {Button} from "react-bootstrap";
 import {BsFillTrashFill} from "react-icons/bs";
-import {IoIosPersonAdd} from "react-icons/io";
-
-function CourseManagement(){
+function StudentOfCourse(){
+    const [newStudentID, setNewStudentID] = useState(0);
+    const [mess, setMess] = useState('');
     const [state, setState] = useState({List: {}, user: {}});
+    const CourseId = window.location.toString().split('/')[5];
     useEffect(() => {
         const config = {
             headers:{
@@ -17,7 +17,7 @@ function CourseManagement(){
                 RefreshToken: localStorage.getItem('refreshToken')
             }
         }
-        axios.get(`/Admin/CourseManagement${window.location.search}`, config).then(
+        axios.get(`/Admin/StudentOfCourse/${CourseId}${window.location.search}`, config).then(
             result=>{
                 setState({
                     List: result.data.List,
@@ -35,29 +35,33 @@ function CourseManagement(){
                 RefreshToken: localStorage.getItem('refreshToken')
             }
         }
-        const conf = window.confirm("Do you really want to delete this Course. ID: " + ID);
+        const conf = window.confirm("Do you really want to delete this student from this course. Student ID is: " + ID);
         if (conf){
-            axios.post('/Admin/DeleteCourse/'+ID, config).then(res=>{})
+            axios.post('/Admin/CourseDeleteStudent/'+CourseId+'?studentid='+ID, config).then(res=>{})
             window.location.reload();
         }
+    }
+    const AddNewStudent = event =>{
+        const config = {
+            headers:{
+                Authorization: localStorage.getItem('accessToken'),
+                RefreshToken: localStorage.getItem('refreshToken')
+            }
+        }
+        axios.post('/Admin/AddNewStudentIntoCourse/'+CourseId+'?studentid='+newStudentID, config).then(res=>{setMess(res.data.mess)});
     }
     if (state.user.accessToken !== undefined) localStorage.setItem("accessToken", state.user.accessToken);
     let res = [];
     let pagesRes = [];
-    for (let i = 0;i<state.List.length;i++){
-        let dateFormat = state.List[i].registerdate;
-        dateFormat = moment().format('D/MM/YYYY');
+    for (let i = 0;i<state.List.length;i++){;
         res.push(
             <tr>
-                <td>{state.List[i].courseid}</td>
-                <td>{state.List[i].coursename}</td>
-                <td>{state.List[i].subjectid}</td>
-                <td>{state.List[i].filepath}</td>
-                <td>{state.List[i].rating}</td>
+                <td>{state.List[i].id}</td>
+                <td>{state.List[i].accountusername}</td>
                 <td>{state.List[i].fullname}</td>
-                <td>{dateFormat}</td>
-                <td><a href={"/Admin/StudentOfCourse/"+state.List[i].courseid}><Button><IoIosPersonAdd/></Button></a></td>
-                <td><Button id={state.List[i].courseid} variant="danger" onClick={DeleteID}><BsFillTrashFill/></Button></td>
+                <td>{state.List[i].email}</td>
+                <td>{state.List[i].phone}</td>
+                <td><Button id={state.List[i].id} variant="danger" onClick={DeleteID}><BsFillTrashFill/></Button></td>
             </tr>
         );
     }
@@ -99,37 +103,38 @@ function CourseManagement(){
             </li>
         );
     }
-
+    if (mess === 'Ok') window.location.reload(false);
     return (
         <Fragment>
             <AdminNavBar>
                 <div style={{width: "100%", marginTop: "20px"}}>
-                    <div className={"fs-4 fw-bold"} style={{display: "inline-block", marginLeft: "50px"}}>Course List
+                    <div className={"fs-4 fw-bold"} style={{display: "inline-block", marginLeft: "50px"}}>
+                        Students of course {CourseId}
                     </div>
-                    <Link to={'/Admin/AddNewCourse'}>
-                        <button style={{
-                            display: "inline-block",
-                            float: "right",
-                            marginRight: "30px",
-                            backgroundColor: "#287A9A",
-                            color:"white",
-                            borderWidth: "0px",
-                            borderRadius: "5px",
-                            padding: "10px"
-                        }}>Add new Course
-                        </button>
-                    </Link>
+                    <button style={{
+                        display: "inline-block",
+                        float: "right",
+                        marginRight: "30px",
+                        backgroundColor: "#287A9A",
+                        color:"white",
+                        borderWidth: "0px",
+                        borderRadius: "5px",
+                        padding: "10px"
+                    }} onClick={AddNewStudent}>Add new student
+                    </button>
+                    <input type={"text"} className={"form-control"}
+                           style={{width: "10%", float: "right", marginRight: "10px", marginTop: "5px"}}
+                           onChange={event => {setNewStudentID(Number(event.target.value.toString()))}}/>
+                    <label className={"form-label"} style={{float: "right", marginTop: "15px", marginRight: "10px"}}>New student ID</label>
+                    <div style={{float: "right", marginRight: "10px", marginTop: "15px", color:"red", fontWeight: "700"}}>{mess}</div>
                 </div>
                 <table style={{marginLeft: "50px", width: "100%"}}>
                     <tr>
-                        <th>Course ID</th>
-                        <th>Course Name</th>
-                        <th>Subject ID</th>
-                        <th>File path</th>
-                        <th>Rating</th>
-                        <th>Lecture</th>
-                        <th>Created date</th>
-                        <th>Edit</th>
+                        <th>Student ID</th>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
                         <th>Delete</th>
                     </tr>
                     {res}
@@ -143,4 +148,4 @@ function CourseManagement(){
         </Fragment>
     );
 }
-export default CourseManagement;
+export default StudentOfCourse;

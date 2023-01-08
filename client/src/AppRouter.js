@@ -8,7 +8,7 @@ import Dashboard from "./Pages/Admin/Dashboard";
 import StudentManagement from "./Pages/Admin/StudentManagment";
 import Test from "./Pages/Test";
 import AddNewStudent from "./Pages/Admin/AddNewStudent";
-import CourseAdmin from "./Pages/Admin/CourseManagement";
+import CourseManagement from "./Pages/Admin/CourseManagement";
 import EditStudent from "./Pages/Admin/EditStudent";
 import LectureManagement from "./Pages/Admin/LectureManagment";
 import AddNewLecture from "./Pages/Admin/AddNewLecture";
@@ -29,6 +29,8 @@ import StudentCourseDetail from "./Pages/Student/StudentCourseDetail";
 import StudentCourseAssignments from "./Pages/Student/StudentCourseAssignments";
 import StudentAssignmentDetail from "./Pages/Student/StudentAssignmentDetail";
 import StudentCourseMaterials from './Pages/Student/StudentCourseMaterial';
+import AddNewCourse from "./Pages/Admin/AddNewCourse";
+import StudentOfCourse from "./Pages/Admin/StudentOfCourse";
 
 export default function AppRouter(){
     return (
@@ -41,15 +43,17 @@ export default function AppRouter(){
                 <Route path='/Admin' element={<Dashboard/>}/>
                 <Route path='/Admin/StudentManagement' element={<StudentManagement/>}/>
                 <Route path='/Admin/LecturerManagement' element={<LectureManagement/>}/>
-                <Route path='/Admin/CourseManagement' element={<CourseAdmin/>}/>
-
+                <Route path='/Admin/CourseManagement' element={<CourseManagement/>}/>
                 <Route path='/Admin/EditStudent/:id' element={<EditStudent />}/>
                 <Route path='/Admin/EditLecture/:id' element={<EditLecture />}/>
-
                 <Route path='/Admin/AddNewStudent' element={<AddNewStudent/>}/>
                 <Route path='/Admin/AddNewLecture' element={<AddNewLecture/>}/>
-
+                <Route path='/Admin/AddNewCourse' element={<AddNewCourse/>}/>
                 <Route path='/Admin/DeleteStudent/:id' element={<StudentManagement/>}/>
+                <Route path='Admin/DeleteCourse/:id' element={<CourseManagement/>}/>
+                <Route path='/Admin/StudentOfCourse/:id' element={<StudentOfCourse/>}/>
+                <Route path='/Admin/CourseDeleteStudent/:id' element={<StudentOfCourse/>}/>
+                <Route path='/Admin/AddNewStudentIntoCourse/:id' element={<StudentOfCourse/>}/>
 
                 <Route path='/Lecturer' element={<DashboardLecturer/>}/>
                 <Route path='/Lecturer/Courses' element={<LecturerCourses/>}/>

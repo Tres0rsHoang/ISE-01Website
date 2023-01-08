@@ -58,27 +58,27 @@ class EditStudent extends Component{
                     <form style={{margin: "10px 50px 0"}} onSubmit={event => this.sendInfo(event)}>
                         <label htmlFor={"AccountUserName"} className={"form-label"}>Username</label>
                         <input type={"text"} className={"form-control"} id={"AccountUserName"} name={"accountusername"}
-                               onChange={event => this.accountusername = event.target.value} value={this.state.student.accountusername}/>
+                               onChange={event => this.accountusername = event.target.value} placeholder={this.state.student.accountusername}/>
 
                         <label htmlFor={"Password"} className={"form-label"}>Password</label>
                         <input type={"text"} className={"form-control"} id={"Password"} name={"accountpassword"}
-                               onChange={event => this.accountpassword = event.target.value} value={this.state.student.accountpassword}/>
+                               onChange={event => this.accountpassword = event.target.value} placeholder={this.state.student.accountpassword}/>
 
                         <label htmlFor={"FullName"} className={"form-label"}>Full Name</label>
                         <input type={"text"} className={"form-control"} id={"FullName"} name={"fullname"}
-                               onChange={event => this.fullname = event.target.value} value={this.state.student.fullname}/>
+                               onChange={event => this.fullname = event.target.value} placeholder={this.state.student.fullname}/>
 
                         <label htmlFor={"Birthday"} className={"form-label"}>Birthday</label>
                         <input type={"date"} className={"form-control"} id={"Birthday"} name={"dateofbirth"}
-                               onChange={event => this.dateofbirth = event.target.value} value={moment(this.state.student.dateofbirth.toString()).format('yyyy-MM-DD')}/>
+                               onChange={event => this.dateofbirth = event.target.value} placeholder={moment(this.state.student.dateofbirth.toString()).format('yyyy-MM-DD')}/>
 
                         <label htmlFor={"Phone"} className={"form-label"}>Phone</label>
                         <input type={"text"} className={"form-control"} id={"Phone"} name={"phone"}
-                               onChange={event => this.phone = event.target.value} value={this.state.student.phone}/>
+                               onChange={event => this.phone = event.target.value} placeholder={this.state.student.phone}/>
 
                         <label htmlFor={"Email"} className={"form-label"}>Email</label>
                         <input type={"email"} className={"form-control"} id={"Email"} name={"email"}
-                               onChange={event => this.email = event.target.value} value={this.state.student.email}/>
+                               onChange={event => this.email = event.target.value} placeholder={this.state.student.email}/>
 
                         <div style={{textAlign: "center", marginTop: "30px"}}>
                             <button type={"submit"} style={{
